@@ -14,6 +14,8 @@ Usage is not limited to Domoticz, you can extract the decoding part for other pu
 
 ## When will the sketch and the schematics be uploaded?
 As soon as I have a stable version. I am currently testing it.
+For progress updates check the following forum:
+http://www.domoticz.com/forum/viewtopic.php?f=38&t=14132
 
 There will be 2 versions.
 One version for only reading the EMS but and one version which includes writing to the bus.
