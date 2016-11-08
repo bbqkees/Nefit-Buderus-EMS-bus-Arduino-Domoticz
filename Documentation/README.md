@@ -1,8 +1,13 @@
 # EMS bus info page
 
 ## EMS bus interface schematic
-if you only intent to read out the bus, you just need to build the top part of the schematc (the RX part).
+If you only intend to read out the bus, you just need to build the top part of the schematic (the RX part).
+When you also want to write to the bus build the entire schematic.
 ![EMS bus interface schematic](http://www.mikrocontroller.net/attachment/95287/EMS_Interface.png)
+
+Depending on which Arduino you use connect the RX pin of the Arduino serial port to the RX pin in the schematic.
+TX goes to TX. Do not connect the 12V pin of the service jack.
+It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.
 
 ## EMS bus interface locations
 The EMS bus is usually available at two locations; at the front or inside the boiler.
