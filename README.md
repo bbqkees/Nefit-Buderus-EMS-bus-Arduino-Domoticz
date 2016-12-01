@@ -1,6 +1,6 @@
 # Nefit-Buderus-EMS-bus-Arduino-Domoticz
 
-Readout of Nefit/Buderus EMS interface Protocol by Arduino and transfer of data via HTTP GET requests to Domoticz home automation software (or to other systems).
+Readout of Nefit/Buderus EMS (=Energy Management System) interface Protocol by Arduino and transfer of data via HTTP GET requests to Domoticz home automation software (or to other systems).
 
 ## Goal:
 Readout the Nefit/Buderus EMS interface of a Nefit Trendline gas boiler (gas condensing central heating boiler).
@@ -21,8 +21,22 @@ There will be 2 versions.
 One version for only reading the EMS but and one version which includes writing to the bus.
 
 ## Boiler support
+Reading the EMS bus:
 Should support all boilers using the EMS databus.
 This includes most Bosch boiler brands like Nefit, Buderus, Worcester.
+Datagrams are periodically sent out by the boiler with source ID 0x08.
+You only need to listen in. No data requests are needed for most boilers.
+
+Writing to the EMS bus:
+To change the temperature and other settings you need to write to the thermostat on the bus.
+Depending on the thermostat on your wall you need to send specific commands.
+Most of these are already reverse-engineered. Some are not.
+Below the list of thermostats which should work fine.
+
+## Thermostat support
+EMS bus thermostats:RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).
+Depending on under which brand name these thermostats are sold they might have a different type name.
+If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.
 
 ## Hardware:
 * EMS interface circuit
