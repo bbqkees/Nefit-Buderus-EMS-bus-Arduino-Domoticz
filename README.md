@@ -45,6 +45,8 @@ If your thermostat does not work, and you really want to change the temperature 
 
 The EMS bus interface can be converted to TTL level by means of a simple circuit.
 The TTL-converted signal can then be connected to one of the the Arduino UARTs.
+['See the Documentation folder'](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation).
+
 
 This sketch uses the Arduino Mega and the Wiznet 5100 ethernet shield.
 You can also use another Arduino like the Uno but that one only has one hardware serial port.
