@@ -7,6 +7,7 @@ However, it will work for most purposes with this old library.
 
 In the code ALL pieces are already there to send data to the EMS bus, I have not tested this.
 The parts I did not need to acquire the bus data, I commented out or just ignored.
+What is not in there is fetching the HTTP GET requests from Domoticz (so you can send commands from Domoticz to the Arduino).
 
 There might also be some left over redundant stuff in the code. You can ignore it or remove it.
 
