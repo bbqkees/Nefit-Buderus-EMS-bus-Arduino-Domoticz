@@ -12,14 +12,6 @@ This sketch reads the EMS interface data and depending on the format decodes the
 You can then send the values via HTTP GET requests to Domoticz or do whatever you want with it.
 Usage is not limited to Domoticz, you can extract the decoding part for other purposes.
 
-## When will the sketch and the schematics be uploaded?
-As soon as I have a stable version. I am currently testing it.
-For progress updates check the following forum:
-http://www.domoticz.com/forum/viewtopic.php?f=38&t=14132
-
-There will be 2 versions.
-One version for only reading the EMS but and one version which includes writing to the bus.
-
 ## Boiler support
 Reading the EMS bus:
 Should support all boilers using the EMS databus.
@@ -54,7 +46,7 @@ You can also use another Arduino like the Uno but that one only has one hardware
 Serial1 is used for the EMS module.
 Serial is used to debug the output to PC. 
 EMS serial works with 9700 Baudrate and 8N1.
-For sending data to the EMS bus a modified Serial library will be supplied.
+For sending data to the EMS bus you need a modified Serial library. It's included in the project.
 
 Arduino Mega:
 * Serial  on pins  0 (RX)  and 1 (TX),
@@ -72,7 +64,7 @@ http://emswiki.thefischer.net/doku.php?id=start
 
 ### How about MQTT instead of HTTP GET requests?
 That is on my list.
-For now it will work exactly like my other Github project ['Vbus-Arduino-Domoticz'](https://github.com/bbqkees/vbus-arduino-domoticz).
+For now it works exactly like my other Github project ['Vbus-Arduino-Domoticz'](https://github.com/bbqkees/vbus-arduino-domoticz).
 
 #### Additional credits
 Sketch is based on the EMS sketches from 'Jvdmeer' from the Nodo forum.
