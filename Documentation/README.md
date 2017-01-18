@@ -10,10 +10,10 @@ TX goes to TX_in. Do not connect the 12V pin of the service jack.
 It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.
 
 ## EMS bus interface locations
-The EMS bus is usually available at two locations; at the front or inside the boiler.
+The EMS bus is usually available at two locations; at the front and/or inside the boiler.
 
 ### Front service jack
-On most boilers there is a 3,5m service jack at the front of the boiler.
+On most boilers there is a 3,5mm service jack at the front of the boiler.
 
 ![EMS service jack pinout](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/EMS-bus-jack-pinout.JPG?raw=true)
 
