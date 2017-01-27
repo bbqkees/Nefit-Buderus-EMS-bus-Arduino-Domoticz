@@ -1,7 +1,7 @@
 # EMS bus info page
 
 ## EMS bus interface schematic
-If you only intend to read out the bus, you just need to build the top part of the schematic (the RX part).
+If you only intend to read out the bus, you just need to build the top part of the schematic (the RX part), and the capacitor from the bottom part.
 When you also want to write to the bus build the entire schematic.
 ![EMS bus interface schematic](http://www.mikrocontroller.net/attachment/95287/EMS_Interface.png)
 
