@@ -22,4 +22,8 @@ Aside from the front service jack, you can also connect the 2 EMS bus wires to t
 
 ![EMS thermostat clamps](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-bus-on-boiler.JPG)
 
+## EMS bus datagram details
+The bus datagram details can be found at het German website https://emswiki.thefischer.net/doku.php.
+For your reference there are two PDF's generated from that website with all the datagram details contained in this folder.
+
 
