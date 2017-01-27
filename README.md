@@ -60,7 +60,7 @@ You cannot use Serial1, so you need to use Serial, which does not allow for debu
 ## Where did you find all the information about the bus?
 http://www.mikrocontroller.net/topic/309075
 http://www.mikrocontroller.net/topic/141831
-http://emswiki.thefischer.net/doku.php?id=start
+https://emswiki.thefischer.net/doku.php?id=start
 
 ### How about MQTT instead of HTTP GET requests?
 That is on my list.
