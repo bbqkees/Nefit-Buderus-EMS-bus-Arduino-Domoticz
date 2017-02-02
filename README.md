@@ -66,6 +66,11 @@ https://emswiki.thefischer.net/doku.php?id=start
 That is on my list.
 For now it works exactly like my other Github project ['Vbus-Arduino-Domoticz'](https://github.com/bbqkees/vbus-arduino-domoticz).
 
+### How about serial output instead of HTTP GET requests?
+If you use a Mega, this is very easy to accomplish.
+Just check f.i. ['this website'](https://wiki.sgripon.net/doku.php/add_temperature_and_humidity_sensor_dht11_in_domoticz).
+It will not work easily with an Uno, because you would need to use the software serial for reading the bus, this would also need modification to its library. But a Mega is only a few Euro/Dollar on Ebay or Aliexpress anyway.
+
 #### Additional credits
 Sketch is based on the EMS sketches from 'Jvdmeer' from the Nodo forum.
 
