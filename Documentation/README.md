@@ -9,6 +9,17 @@ Depending on which Arduino you use connect the RX pin of the Arduino serial port
 TX goes to TX_in. Do not connect the 12V pin of the service jack.
 It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.
 
+The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice.
+The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~100 Ohm resistor. 
+One improvement to the circuit would be using optocouplers on the right side where you interface them with your logic.
+Without those in theory a voltage burst on the bus could destroy your Arduino.
+
+### Powering your circuit from the bus itself
+I got a few questions if you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
+I have not tested this, but it should be possible to some extent.
+Nefit sells a WiFi service adapter that only plugs into the front service jack, so likely you can also power some stuff from this jack.
+I have no idea how much current you can draw from it, test it yourself if you need it.
+
 ## EMS bus interface locations
 The EMS bus is usually available at two locations; at the front and/or inside the boiler.
 
