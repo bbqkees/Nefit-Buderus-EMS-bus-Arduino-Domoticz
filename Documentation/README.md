@@ -14,6 +14,8 @@ The 4 parallel resistors in the transmitter part can be replaced by a single 1W 
 One improvement to the circuit would be using optocouplers on the right side where you interface them with your logic.
 Without those in theory a voltage burst on the bus could destroy your Arduino.
 
+(This schematic is from the website http://wiki.neo-soft.org/index.php/Heizungsschnittstelle/ServiceKey, you can also find additional info on the EMS bus there).
+
 ### Powering your circuit from the bus itself
 I got a few questions if you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
 I have not tested this, but it should be possible to some extent.
