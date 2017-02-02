@@ -17,7 +17,7 @@ Without those in theory a voltage burst on the bus could destroy your Arduino.
 (This schematic is from the website http://wiki.neo-soft.org/index.php/Heizungsschnittstelle/ServiceKey, you can also find additional info on the EMS bus there).
 
 ### Powering your circuit from the bus itself
-I got a few questions if you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
+I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
 I have not tested this, but it should be possible to some extent.
 Nefit sells a WiFi service adapter that only plugs into the front service jack, so likely you can also power some stuff from this jack.
 I have no idea how much current you can draw from it, test it yourself if you need it.
