@@ -11,11 +11,15 @@ It does not matter which EMS bus pin you connect to which pin, the bridge rectif
 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice.
 The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~100 Ohm resistor. 
+
+There are more components that are not that strict, I used f.i. a LM339 instead of the LM393.
+
 One improvement to the circuit would be using optocouplers on the right side where you interface them with your logic.
 Without those in theory a voltage burst on the bus could destroy your Arduino.
 The line 'U_REF' is an internal voltage, just connect every 'U_REF' line together and you are done.
 
 Here is the Rx part of the schematic on a small breadboard:
+
 ![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-breadboard.JPG?raw=true)
 
 (This schematic is from the website http://wiki.neo-soft.org/index.php/Heizungsschnittstelle/ServiceKey, you can also find additional info on the EMS bus there).
