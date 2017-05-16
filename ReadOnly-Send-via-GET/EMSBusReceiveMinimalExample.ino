@@ -372,10 +372,10 @@ void loop(){
   nefitSerial.println("------------------------");
   nefitSerial.println("NEFIT EMS bus:");
   
-  nefitSerial.print("cv water uitgaand: ");
+  nefitSerial.print("cv water output: ");
   nefitSerial.println((float)nefitRegister[0]/10,1);      
 
-  nefitSerial.print("burner vermogen: ");
+  nefitSerial.print("burner power: ");
   nefitSerial.println((float)nefitRegister[1],1);      
 
   nefitSerial.print("burner on/off: ");
@@ -384,13 +384,13 @@ void loop(){
   nefitSerial.print("cv pump on/off: ");
   nefitSerial.println((float)nefitRegister[3],DEC);   //cv pump  
  
-  nefitSerial.print("hot watervraag on/off: ");
+  nefitSerial.print("hot water on/off: ");
   nefitSerial.println((float)nefitRegister[4],DEC);    
 
-  nefitSerial.print("keteltemp: ");
+  nefitSerial.print("boiler temp: ");
   nefitSerial.println((float)nefitRegister[5]/10,1);    //keteltemp
   
-  nefitSerial.print("cv cvreturn temp: ");
+  nefitSerial.print("cv return temp: ");
   nefitSerial.println((float)nefitRegister[6]/10,1);    //waterterug temp
   
   nefitSerial.print("waterpressure: ");
@@ -400,10 +400,10 @@ void loop(){
   nefitSerial.print((char)nefitRegister[8]);    
   nefitSerial.println((char)nefitRegister[9]);  
   
-  nefitSerial.print("hotwater temp: ");
+  nefitSerial.print("hot water temp: ");
   nefitSerial.println((float)nefitRegister[10]/10,1);   //hotwatertemp
 
-  nefitSerial.print("boiler verhoting on/off: ");
+  nefitSerial.print("boiler heater on/off: ");
   nefitSerial.println((float)nefitRegister[11],DEC);  
 
   //nefitSerial.print(",");
