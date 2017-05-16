@@ -1,5 +1,5 @@
 /*
-/* EMS bus decoder/encoder to/from Domoticz sketch for Arduino with Ethernet module
+/* EMS bus decoder to Domoticz sketch for Arduino with Ethernet module
  * * Version 1.0 Minimal - Github - May 2017
  * 
  * Copyright (c) 2017 - 'bbqkees' @ www.domoticz.com/forum
