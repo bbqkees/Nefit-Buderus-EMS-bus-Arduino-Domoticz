@@ -63,7 +63,7 @@ http://www.mikrocontroller.net/topic/141831
 https://emswiki.thefischer.net/doku.php?id=start
 
 ### How about MQTT instead of HTTP GET requests?
-That is on my list.
+That is on my list (maybe).
 For now it works exactly like my other Github project ['Vbus-Arduino-Domoticz'](https://github.com/bbqkees/vbus-arduino-domoticz).
 
 ### How about serial output instead of HTTP GET requests?
@@ -73,6 +73,10 @@ It will not work easily with an Uno, because you would need to use the software 
 
 #### Additional credits
 Sketch is based on the EMS sketches from 'Jvdmeer' from the Nodo forum.
+
+#### Which license applies here?
+The MIT License. This means that you can do whatever you want with my code! No need to ask me.
+It is always nice however to publish your version to Github to help others.
 
 #### Legal Notices
 'Worcester, Bosch Group', 'Buderus' and 'Nefit' are brands of Bosch Thermotechnology.
