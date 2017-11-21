@@ -5,6 +5,8 @@ If you only intend to read out the bus, you just need to build the top part of t
 When you also want to write to the bus build the entire schematic.
 ![EMS bus interface schematic](http://www.mikrocontroller.net/attachment/95287/EMS_Interface.png)
 
+(The schematic is originally from the website http://wiki.neo-soft.org).
+
 Depending on which Arduino you use connect the RX pin of the Arduino serial port to the RX_out pin in the schematic.
 TX goes to TX_in. Do not connect the 12V pin of the service jack.
 It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.
@@ -21,8 +23,6 @@ The line 'U_REF' is an internal voltage, just connect every 'U_REF' line togethe
 Here is the Rx part of the schematic on a small breadboard:
 
 ![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-breadboard.JPG?raw=true)
-
-(This schematic is from the website http://wiki.neo-soft.org/index.php/Heizungsschnittstelle/ServiceKey, you can also find additional info on the EMS bus there).
 
 ### Powering your circuit from the bus itself
 I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
