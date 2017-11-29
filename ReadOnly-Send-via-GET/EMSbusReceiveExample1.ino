@@ -1,8 +1,9 @@
 /*
 /* EMS bus decoder/encoder to/from Domoticz sketch for Arduino with Ethernet module
- * * Version 1.0 Github - January 2017
+ * * Version 1.01 Github - November 2017
  * 
  * Copyright (c) 2017 - 'bbqkees' @ www.domoticz.com/forum
+ * What now follows is the MIT license, this means you can do whatever you want with the code.
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software
  * and associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute,
@@ -19,8 +20,10 @@
  * 'Worcester', 'Bosch Group', 'Buderus' and 'Nefit' are brands of Bosch Thermotechnology.
  * All other trademarks are the property of their respective owners.
 
- * last edit  :  17-JAN-2017
+ * last edit  :  29-NOV-2017
  * 
+ * 29-NOV-2017:  Added alert sensor request in preparation for status code notification to Domoticz
+ *		 Also corrected the text sensor request and added some more comments. 
  * 17-JAN-2017:  Github version 1.0
  * 16-NOV-2016:  Data only sent if value has changed.
  *               #if DEBUG added to print debug data over Serial0 port. 
@@ -92,6 +95,11 @@ EthernetClient client;
 * You can only change the setpoint etc if you have connected the thermostat to the bus.
 * 
 */
+
+
+// The following array is placed in flash instead of RAM. Hence the 'PROGMEM' part.
+// These values will never change and storing it in flash saves up some space in RAM.
+// Storing it in flash means you need to use pgm_read_byte_near() to retrieve the values.
 
 PROGMEM const unsigned char regNefitCoding[]={
 
@@ -385,10 +393,10 @@ int writeRegister(byte regnr, int val){
   return result;
 }
 
-//The part below contain all the httprequest functions.
+//The part below contain all the HTTP request functions.
 
 
-// General value JSON URL. Prints 2 decimals
+// Domoticz general value JSON URL. Prints 2 decimals
 // /json.htm?type=command&param=udevice&idx=IDX&nvalue=0&svalue=TEMP
 // /json.htm?type=command&param=udevice&idx=IDX&nvalue=0&svalue=BAR
 // /json.htm?type=command&param=udevice&idx=IDX&nvalue=0&svalue=PERCENTAGE
@@ -414,6 +422,7 @@ void httpRequestvalue(int IDX, float value) {
   }
 }
 
+//  Domoticz switch
 // /json.htm?type=command&param=switchlight&idx=XX&switchcmd=On
 void httpRequestswitch(int IDX, String status) {
   // if there's a successful connection:
@@ -437,13 +446,41 @@ void httpRequestswitch(int IDX, String status) {
   }
 }
 
+//  Domoticz text sensor
 //  /json.htm?type=command&param=udevice&idx=IDX&nvalue=0&svalue=TEXT
-void httpRequestTextWh(int IDX, float text) {
+void httpRequestText(int IDX, String text) {
   // if there's a successful connection:
   if (client.connect(domoticz, port)) {
     client.print( "GET /json.htm?type=command&param=udevice&idx=");
     client.print(IDX);
     client.print("&nvalue=0&svalue=");
+    client.print(text);
+    client.println( " Wh HTTP/1.1");
+    client.print( "Host: ");
+    client.println(ip);
+    client.println( "Connection: close");
+    client.println();
+
+    client.println();
+    client.stop();
+    delay(150);
+  } 
+  else {
+    client.stop();
+  }
+}
+
+//  Domoticz Alert sensor (Same as text sensor, but with additional alert level)
+//  /json.htm?type=command&param=udevice&idx=IDX&nvalue=LEVEL&svalue=TEXT
+//  Level = (0=gray, 1=green, 2=yellow, 3=orange, 4=red)
+void httpRequestTextAlert(int IDX, int level, String text) {
+  // if there's a successful connection:
+  if (client.connect(domoticz, port)) {
+    client.print( "GET /json.htm?type=command&param=udevice&idx=");
+    client.print(IDX);
+    client.print("&nvalue=");
+    client.print(level);
+    client.print("&svalue=");
     client.print(text);
     client.println( " Wh HTTP/1.1");
     client.print( "Host: ");
