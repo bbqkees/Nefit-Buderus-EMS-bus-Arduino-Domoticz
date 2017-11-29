@@ -22,8 +22,8 @@
 
  * last edit  :  29-NOV-2017
  * 
- * 29-NOV-2017:  Added alert sensor request in preparation for status code notification to Domoticz
- *		 Also corrected the text sensor request and added some more comments. 
+ * 29-NOV-2017:  Added alert sensor request function in preparation for status code notification to Domoticz
+ *		 Also corrected the text sensor request function and added some more comments. 
  * 17-JAN-2017:  Github version 1.0
  * 16-NOV-2016:  Data only sent if value has changed.
  *               #if DEBUG added to print debug data over Serial0 port. 
@@ -76,6 +76,11 @@ EthernetClient client;
 /*
 * The following table is used in converting the register to and from the Nefit bus messages.
 * It also supplies the encoding it is in.
+*
+* It is placed in flash instead of RAM. Hence the 'PROGMEM' part.
+* These values will never change and therefore you can store it in flash.
+* This saves up some space in RAM.
+* Storing it in flash means you need to use pgm_read_byte_near() to retrieve the values.
 * 
 * Format: <transmitter ID>,<frametype>,<data-offset>,<vartype>     // data-offset start at byte 4
 * vartype bit 3-0 	= 0 boolean (bitnr in bit 6-4)
@@ -89,17 +94,12 @@ EthernetClient client;
 * Transmitter ID 0x08 is the listening address for the EMS bus.
 * The boiler will provide this data.
 * Transmitter ID 0x17 is from the RC20 type thermostat. 
-* You will onyl see this data if you have this thermostat.
+* You will only see this data if you have this specific thermostat.
 * Otherwise you need to check http://emswiki.thefischer.net/ for your thermostat.
 * 
 * You can only change the setpoint etc if you have connected the thermostat to the bus.
 * 
 */
-
-
-// The following array is placed in flash instead of RAM. Hence the 'PROGMEM' part.
-// These values will never change and storing it in flash saves up some space in RAM.
-// Storing it in flash means you need to use pgm_read_byte_near() to retrieve the values.
 
 PROGMEM const unsigned char regNefitCoding[]={
 
@@ -119,18 +119,18 @@ PROGMEM const unsigned char regNefitCoding[]={
 0x17,0x91,0x02,0x05,					//#14 13 room temperature x 10
 0x17,0xA8,0x17,0x81,					//#15 14 setting 0=low, 1=manual, 2=clock
 0x17,0xA8,0x1C,0x84,					//#16 15 overruled clock setting x 2 ( 0 = not overruled)
-0x17,0xA8,0x1D,0x84					  //#17 16 manual setpoint temperature x 2
+0x17,0xA8,0x1D,0x84					//#17 16 manual setpoint temperature x 2
 };
 
 void printbuffer(char * buffer, int len );
 
-char buffer[32];                				      // frame buffer
-int nefitRegister[NEFIT_REG_MAX];	            // index number see above
-unsigned long register_changed =0;            // flag if registy changed
-byte pollAdres = 0;                           // if not 0, last polling address
+char buffer[32];                		// frame buffer
+int nefitRegister[NEFIT_REG_MAX];	        // index number see above
+unsigned long register_changed =0;              // flag if registy changed
+byte pollAdres = 0;                             // if not 0, last polling address
 byte nefitRegToVar[NEFIT_REG_MAX];          	// Write to which variable
-int regToWrite =0 ;                           // Split execution event handling (normally not needed)
-int regValue;                                 // Same as above
+int regToWrite =0 ;                             // Split execution event handling (normally not needed)
+int regValue;                                   // Same as above
 char xmitBuffer[7] = {0x0B,0x17,0xA8,0x17,0x00,0x00,0x00};            // load some defaults
 
 boolean EtherComm = false;
@@ -192,7 +192,7 @@ boolean crcCheckOK(char * buffer, int len ){
   return crcOK;
 }
 
-// Reas one bus frame, cvreturn number of read bytes
+// Read one bus frame, return number of read bytes
 int readBytes(char * buffer){
   int ptr = 0;
 
@@ -241,7 +241,7 @@ void sendBuffer(char * xmitBuffer, int len){
   nefitSerial1.flush();
 }
 
-// Read a register value from frame-buffer, decide if necessary and cvreturn as int
+// Read a register value from frame-buffer, decide if necessary and return as int
 int getValue(char * buffer, byte offset, byte vartype){
   int result;
   uint8_t type = vartype & 0x0F;
@@ -455,7 +455,7 @@ void httpRequestText(int IDX, String text) {
     client.print(IDX);
     client.print("&nvalue=0&svalue=");
     client.print(text);
-    client.println( " Wh HTTP/1.1");
+    client.println( " HTTP/1.1");
     client.print( "Host: ");
     client.println(ip);
     client.println( "Connection: close");
@@ -482,7 +482,7 @@ void httpRequestTextAlert(int IDX, int level, String text) {
     client.print(level);
     client.print("&svalue=");
     client.print(text);
-    client.println( " Wh HTTP/1.1");
+    client.println( " HTTP/1.1");
     client.print( "Host: ");
     client.println(ip);
     client.println( "Connection: close");
@@ -595,7 +595,7 @@ void loop(){
   nefitSerial.print("keteltemp: ");
   nefitSerial.println((float)nefitRegister[5]/10,1);    //keteltemp
   
-  nefitSerial.print("cv cvreturn temp: ");
+  nefitSerial.print("cv return temp: ");
   nefitSerial.println((float)nefitRegister[6]/10,1);    //waterterug temp
   
   nefitSerial.print("waterpressure: ");
