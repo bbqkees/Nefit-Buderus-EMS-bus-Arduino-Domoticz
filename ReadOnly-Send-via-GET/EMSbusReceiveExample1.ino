@@ -1,6 +1,6 @@
 /*
 /* EMS bus decoder/encoder to/from Domoticz sketch for Arduino with Ethernet module
- * * Version 1.01 Github - November 2017
+ * * Version 1.02 Github - January 2018
  * 
  * Copyright (c) 2017 - 'bbqkees' @ www.domoticz.com/forum
  * What now follows is the MIT license, this means you can do whatever you want with the code.
@@ -20,8 +20,9 @@
  * 'Worcester', 'Bosch Group', 'Buderus' and 'Nefit' are brands of Bosch Thermotechnology.
  * All other trademarks are the property of their respective owners.
 
- * last edit  :  29-NOV-2017
+ * last edit  :  03-JAN-2018
  * 
+ * 03-JAN-2018:  Added explanation about decoding of the array values.
  * 29-NOV-2017:  Added alert sensor request function in preparation for status code notification to Domoticz
  *		 Also corrected the text sensor request function and added some more comments. 
  * 17-JAN-2017:  Github version 1.0
@@ -43,7 +44,7 @@
  * As I am Dutch, some variables might be in partial Dutch instead of English.
  * F.i. 'CV' is 'Centrale Verwarming', which means 'Central Heating'. So if you see 'cv' think 'ch'.
  * Same for 'WW" which is 'Warm Water' which translates to 'hot tap water' in English.
- * However I translated all the comments to English.
+ * However I translated most of the comments to English.
  * 
  * If you have question about this sketch and its methods, please ask me on the Domoticz forum.
  */
@@ -98,7 +99,37 @@ EthernetClient client;
 * Otherwise you need to check http://emswiki.thefischer.net/ for your thermostat.
 * 
 * You can only change the setpoint etc if you have connected the thermostat to the bus.
+*
+* Decoding examples:
+* 0x08,0x18,0x04,0x01 ->
+* Transmitter 0x08 = UBA (a.k.a. the boiler itself)
+* Frametype 0x18 = type UBAMonitorFast (See https://emswiki.thefischer.net/doku.php?id=wiki:ems:telegramme)
+* Data-offset 0x04 = 4 + start offset of 5 = 9 -> burner power (%).
+* vartype 0x01 = 0b0000 0001 -> 1 byte.
+*
+* 0x08,0x34,0x01,0x05 ->
+* Transmitter 0x08 = UBA
+* Frametype 0x34 = type UBAMonitorWWMessage 
+* Data-offset 0x01 = 1 + start offset of 5 = 6 -> tap water temperature x10.
+* vartype 0x05 = int x 10.
+*
+* 0x08,0x34,0x05,0x50 ->
+* Transmitter 0x08 = UBA
+* Frametype 0x34 = type UBAMonitorWWMessage 
+* Data-offset 0x05 = 5 + start offset of 5 = 10.
+* vartype 0x50 = 0b0101 0000 -> bit 3-0 -> 0b000 = 0 = type boolean. bit 6-4 -> 0b101 = start bit 5 -> WW OK.
 * 
+* Vartypes 0x80 and above are used in determining if the value is writeable in the 'writeRegister' function.
+* 0x81 = 0b1000 0001 -> writeable value of type byte.
+*
+* Note for transmitter ID 0x17 with frametypes 0x91 and 0xA8:
+* These are reverse engineered values found by observing the bus. They are specific for the RC20.
+* If you want to set values for the RC35 instead check the EMS wiki for it's values.
+*
+*
+* You can expand the array 'regNefitCoding' below by adding lines to it with your own set of values.
+* Do not forget to increase 'NEFIT_REG_MAX' accordingly.
+*
 */
 
 PROGMEM const unsigned char regNefitCoding[]={
