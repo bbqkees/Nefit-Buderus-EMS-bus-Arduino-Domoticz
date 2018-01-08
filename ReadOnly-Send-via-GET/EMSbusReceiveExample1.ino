@@ -1,6 +1,6 @@
 /*
 /* EMS bus decoder/encoder to/from Domoticz sketch for Arduino with Ethernet module
- * * Version 1.02 Github - January 2018
+ * * Version 1.03 Github - January 2018
  * 
  * Copyright (c) 2017 - 'bbqkees' @ www.domoticz.com/forum
  * What now follows is the MIT license, this means you can do whatever you want with the code.
@@ -22,6 +22,7 @@
 
  * last edit  :  03-JAN-2018
  * 
+ * 08-JAN-2018:  Added some more detailed explanations.
  * 03-JAN-2018:  Added explanation about decoding of the array values.
  * 29-NOV-2017:  Added alert sensor request function in preparation for status code notification to Domoticz
  *		 Also corrected the text sensor request function and added some more comments. 
@@ -130,6 +131,11 @@ EthernetClient client;
 * You can expand the array 'regNefitCoding' below by adding lines to it with your own set of values.
 * Do not forget to increase 'NEFIT_REG_MAX' accordingly.
 *
+* Keep in mind that the regNefitCoding array is nicely formatted here, in memory it is just a concatenation like
+* 0x08,0x18,0x01,0x05,0x08,0x18,0x04,0x01,0x08,0x18,0x07,0x00, etc.
+* Each line is a sequence of 4 bytes.
+* in order to address a certain 'line', you need to start looking at every n+4 byte. So 0, 4, 8....
+*  
 */
 
 PROGMEM const unsigned char regNefitCoding[]={
@@ -273,6 +279,44 @@ void sendBuffer(char * xmitBuffer, int len){
 }
 
 // Read a register value from frame-buffer, decide if necessary and return as int
+/*
+* Detailed explanation getValue
+* Important to recall here is that 'vartype' is one byte of which bit 0 to 3 represent the variable type.
+* Furthermore bit 4 to 6 represent the bit index number in case the vartype is a boolean.
+* Writeable vartypes have byte 7 set to 1.
+*
+* As the input of this function you use the buffer array, the position of the relevant databyte (offset) and its vartype.
+*
+* --------
+* Step 1 - Do vartype AND 0x0F.
+*	In a binary AND function, the result is true only if both inputs are true.
+*	Otherwise the result is false.
+* 	0x0F is 0b0000 1111. So bit 0 to 3 are 1, all others are 0.
+*	This means that if you perform and AND with 0x0F on any given byte, only bit 0-3 will ever be important.
+*	All other bits will always be 0 in the result.
+*	0x05 is 0b0000 0101. 0x05 AND 0x0F is 0b0000 0101, which is of course 5.
+*	0x60 is 0b0110 0000. 0x60 AND 0x0F is 0b0000 0000, which is 0.
+*	0x84 0s 0b1000 0100. 0x84 AND 0x0F is 0b0000 0100, which is 4.
+*	The result of the AND function is used as input for the following switch case.
+* --------
+* Step 2 - Switch case
+*	There are 3 possible functions here. One for switch case 0, one for switch cases 1,2,4,6 and one for cases 3,5.
+*	-> Case 0: The var type is a boolean.
+*		The function bitRead is executed with parameters the offset and the result of '(vartype&0x70)>>4'.
+*		BitRead is an Arduino function that returns the value of a certain bit in a byte.
+*		'(vartype&0x70)>>4' -> Do vartype AND 0x70, and after that shift all resulting bits 4 positions to the right.
+*		Now, AND with 0x70 is a measure to cut off all irrelevant bits, just like in the AND function in step 1.
+*		The result is shifted 4 bits to the right.
+*		0x50 & 0x70 is still 0x50. 0x50 is 0b0101 0000. 0b0101 000 >>4 = 0b0000 0101 = 5.
+*		So you read bit 5 of the data byte. 		
+*	-> Case 1,2,4 or 6: the resulting value is just the byte value of the single data byte.
+*	-> Case 3 or 5: Byteshift first databyte to the left, and then add the second databyte.
+*		The part '<<8' means that you shift every bit 8 positions to the left.
+*		So 0b1010 1010 will get to 0b1010 1010 0000 0000.
+*		Now if you add a second byte 0b1111 1111 the result will be 0b1010 1010 1111 1111.
+*		This is done to properly add up a MSB and a LSB byte to represent f.i. an integer.
+* --------
+*/ 
 int getValue(char * buffer, byte offset, byte vartype){
   int result;
   uint8_t type = vartype & 0x0F;
@@ -305,6 +349,62 @@ int getValue(char * buffer, byte offset, byte vartype){
 }
 
 // Decode frame with help of the table and load register
+/*
+* Explanation nefitFrame2register
+* This function loops over every 'line' in regNefitCoding and checks if there is a match.
+* If there is a match, it decodes the data bytes and puts the resulting value in the corresponding nefitRegister address.
+*
+* As the input if this function you use the buffer array and the buffer size (len).
+*
+* Detailed explanation: 
+*
+* Recall the typical EMS bus datagram:
+* | Byte 1 |  Byte 2  |  Byte 3   | Byte 4 | Byte 5 .. n-2 | Byte n-1 | Byte n |
+* | sender | Receiver | Frametype | Offset |  Data bytes   |   CRC    | BREAK  |
+*
+* So the buffer array contains the following relevant information:
+* buffer[0]: Sender
+* buffer[1]: Receiver (not used here)
+* buffer[2]: Frametype
+* buffer[3]: Offset
+* buffer[4]: First databyte
+* buffer[5]: Next databyte
+* .....
+*
+* --------
+* Step 1 - for loop:
+*	This loop will check every line in regNefitCoding.
+* 	Remember, a line in regNefitCoding is a sequence of 4 bytes. So to address the next line,
+*	the counter needs to be incremented by 4 each time (i=i+4).
+*	So line 1 starts at byte nr 0, line 2 at byte nr 4, line 3 at byte nr 8 etc. 
+*	The loop will run from 0 until the end of the regNefitCoding array. which is NEFIT_REG_MAX*4. 
+* --------
+* Step 2 - Read the first 2 bytes from a regNefitCoding line and put those in 2 variables.
+* --------
+* Step 3 - Check if there is an approximate match of the data with the line.
+*	If so, continue and read the 3rd byte of the line. If not, do next loop iteration.
+*	the IF statement checks if the Sender (buffer[0]) in the datagram matches the sender of the current line from refNefitCoding.
+*	It also checks if the Frametype (buffer[2]) in the datagram matches the frametype in the current line. 
+*	(You should have noticed that buffer[1] is skipped, because it has no relevance here.)
+*	This 3rd step might seem not needed because step 4 does almost the same,
+*	but apparently reading from flash takes some additional time so we want to prevent it as much as needed.
+* --------
+* Step 4 - If previous step was ok, now check is there is an exact match.
+*	If so, recalculate the offset. If not, do next loop iteration.
+*	The offset is recalculated so that it is compensated for the datagram header bytes (4 of them).
+*	the IF statement checks if the Sender (buffer[0]) in the datagram exactly matches the sender of the current line from refNefitCoding.
+*	It also checks if the Frametype (buffer[2]) in the datagram exactly matches the frametype of the current line.
+*	Furthermore it checks if the Offset (buffer[3]) matches the offset of the current line.
+* --------
+* Step 5 - check if the recalculated offset is smaller than the amount of databytes in the datagram.
+*	If so, read the variable type of the current line of regNefitCoding.
+*	Also, execute the function getValue with the parameters buffer,offset,vartype.
+*	(See the explanation there for more details).
+* --------
+* Step 6 - check if the newly calculated data is different from the current value of the corresponding item in nefitRegister. 
+*	If it is different, write the new value.
+* --------
+*/
 void nefitFrame2register(char * buffer, int len){
   byte sender, message;
   int register_data, difference;
