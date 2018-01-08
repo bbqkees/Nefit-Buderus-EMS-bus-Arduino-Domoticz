@@ -20,7 +20,7 @@
  * 'Worcester', 'Bosch Group', 'Buderus' and 'Nefit' are brands of Bosch Thermotechnology.
  * All other trademarks are the property of their respective owners.
 
- * last edit  :  03-JAN-2018
+ * last edit  :  08-JAN-2018
  * 
  * 08-JAN-2018:  Added some more detailed explanations.
  * 03-JAN-2018:  Added explanation about decoding of the array values.
