@@ -27,9 +27,10 @@ Most of these are already reverse-engineered. Some are not.
 Below the list of thermostats which should work fine.
 
 ## Thermostat support
-EMS bus thermostats:RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).
+EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).
 Depending on under which brand name these thermostats are sold they might have a different type name.
-If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.
+If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
+The ['Github of Danidata'](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.
 
 ## Hardware:
 * EMS interface circuit
