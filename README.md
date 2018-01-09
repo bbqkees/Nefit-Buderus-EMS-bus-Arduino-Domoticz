@@ -17,7 +17,8 @@ Reading the EMS bus:
 Should support all boilers using the EMS databus.
 This includes most Bosch boiler brands like Nefit, Buderus, Worcester.
 Datagrams are periodically sent out by the boiler with source ID 0x08.
-You only need to listen in. No data requests are needed for most boilers.
+You only need to listen in. No data requests are needed for most boilers.<br>
+However, several types of data are only send when the specific device on the bus is polled. For this you need to write to the bus.
 
 Writing to the EMS bus:
 To change the temperature and other settings you need to write to the thermostat on the bus.
@@ -33,7 +34,7 @@ If your thermostat does not work, and you really want to change the temperature 
 ## Hardware:
 * EMS interface circuit
 * Arduino Mega + Wiznet Ethernet Shield
-* Raspberry Pi with Domoticz
+* Raspberry Pi, PC or other device running Domoticz
 
 The EMS bus interface can be converted to TTL level by means of a simple circuit.
 The TTL-converted signal can then be connected to one of the the Arduino UARTs.
