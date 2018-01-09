@@ -1,7 +1,7 @@
 
 This folder contains two Arduino sketches that read the bus, decode the data and send selected values to Domoticz via HTTP GET requests if the value has changed.
 
-The main file EMSbusReceiveExample1.ino contains lots of comments to help you understand how it works. The file EMSBusReceiveMinimalExample.ino only contains the minimum of code to just read the bus.
+The main file EMSbusReceiveExample1.ino contains lots of comments to help you understand how it works. The file EMSBusReceiveMinimalExample.ino only contains the minimum of code to just read the bus. Only the main file is actively maintained at this moment.
 
 The Arduino sketch uses a modified Arduino Serial library. It is included.
 The library that was modified is a pretty old one, I am planning to incorporate the changes into the latest Arduino Serial library.
