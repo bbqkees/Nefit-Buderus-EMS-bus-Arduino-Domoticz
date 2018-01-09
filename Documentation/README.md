@@ -24,6 +24,11 @@ Here is the Rx part of the schematic on a small breadboard:
 
 ![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-breadboard.JPG?raw=true)
 
+### Using this circuit for interfacing with a Raspberry Pi
+You can use this circuit also to directly interface with the Raspberry Pi UART. However, you need to make a small modification.<br>
+The Arduino has 5V compatible UARTS, the Raspberry Pi has 3,3V compatible UARTS.<br>
+Replace the 4k7 resistor on the right (next to RX_OUT) by a voltage divider consisting of one 20k resistor and one 10k resistor in series. Put the 20k resistor where the 4k7 resistor is, and in series to that one connect the 10k resistor to ground. Now connect the RX_OUT to the point between the 20k and the 10k resistor. Keep in mind the circuit still needs a 5V power supply.
+
 ### Powering your circuit from the bus itself
 I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
 I have not tested this, but it should be possible to some extent.
