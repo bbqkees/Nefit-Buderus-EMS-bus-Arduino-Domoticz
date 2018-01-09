@@ -48,8 +48,18 @@ Aside from the front service jack, you can also connect the 2 EMS bus wires to t
 
 ![EMS thermostat clamps](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-bus-on-boiler.JPG)
 
+## EMS bus protocol
+A typical EMS bus datagram looks like this:<br>
+ | Byte 1 |  Byte 2  |  Byte 3   | Byte 4 | Byte 5 .. n-2 | Byte n-1 | Byte n |<br>
+ | Sender | Receiver | Frametype | Offset |  Data bytes   |   CRC    | BREAK  |<br>
+<br>
+The sequence starts with the sender ID (byte 1) and the intended receiver ID (byte 2). Byte 3 contains the frametype. The frametype is the identification of the type of message that is transmitted. A frametype basically represents a table. Byte 4 contains the offset in bytes in the particular frametype. So it is the index of the item in the table. Byte 5 and following contain the data. At the end of the message follows a CRC byte.<br>
+A datagram is terminated by a BREAK.<br>
+What the code does is listen on the bus for databytes until this BREAK appears. After the break it knows it has received a complete datagram. With all the datagram bytes in its buffer it will check if the first 3 bytes of the datagram match a known entry in the decoding list. If so, it will decode the datagram so you can use the value to send it to Domoticz.
+
+
 ## EMS bus datagram details
-The bus datagram details can be found at het German website https://emswiki.thefischer.net/doku.php.
+The bus datagram details and a large list of all frametypes can be found at het German website https://emswiki.thefischer.net/doku.php.
 For your reference there are two PDF's generated from that website with all the datagram details contained in this folder.
 [HERE](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/telegrammaufbau.pdf) and [HERE](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/telegramme.pdf).
 
