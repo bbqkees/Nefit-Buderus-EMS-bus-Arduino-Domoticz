@@ -9,9 +9,11 @@ When you also want to write to the bus build the entire schematic.
 
 Depending on which Arduino you use connect the RX pin of the Arduino serial port to the RX_OUT pin in the schematic.
 TX goes to TX_IN. Do not connect the 12V pin of the service jack.
-It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.
+It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.<br>
 
 The 100nF (=0,1uF) capacitor is a bypass capacitor to ensure a stable voltage for the LM393 (See the LM393 datasheet). 
+Also do not forget to power the LM393 itself with 5V and ground on pins 8 and 4.<br> 
+<br>
 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice.
 The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~100 Ohm resistor. 
