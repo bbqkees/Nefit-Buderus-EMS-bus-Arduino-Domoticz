@@ -16,12 +16,12 @@ Usage is not limited to Domoticz, you can extract the decoding part for other pu
 Reading the EMS bus:
 Should support all boilers using the EMS databus.
 This includes most Bosch boiler brands like Nefit, Buderus, Worcester.
-Datagrams are periodically sent out by the boiler with source ID 0x08.
+Datagrams containing status updates are periodically sent out by the boiler with source ID 0x08.
 You only need to listen in. No data requests are needed for most boilers.<br>
 However, several types of data are only send when the specific device on the bus is polled. For this you need to write to the bus.
 
 Writing to the EMS bus:
-To change the temperature and other settings you need to write to the thermostat on the bus.
+To change the temperature and other settings you need to write to the *thermostat* on the bus.
 Depending on the thermostat on your wall you need to send specific commands.
 Most of these are already reverse-engineered. Some are not.
 Below the list of thermostats which should work fine.
@@ -30,7 +30,11 @@ Below the list of thermostats which should work fine.
 EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).
 Depending on under which brand name these thermostats are sold they might have a different type name.
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
-The ['Github of Danidata'](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.
+This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
+**You do NOT need to have an EMS compatible thermostat if you only want to read out the boiler!**<br>
+Status updates regarding many parameters of the boiler are sent to the bus every 10 seconds.<br>
+I f.i. have an on/off thermostat zone control. So I do not have a Nefit thermostat at all. By connecting the EMS bus circuit to the service jack, I can still capture those status updates.<br>
+It is only if you want to read or write thermostat settings you need an EMS bus thermostat.
 
 ## Hardware:
 * EMS interface circuit
@@ -39,7 +43,7 @@ The ['Github of Danidata'](https://github.com/danidata/Calduino-WiFly-Arduino-EM
 
 The EMS bus interface can be converted to TTL level by means of a simple circuit.
 The TTL-converted signal can then be connected to one of the the Arduino UARTs.
-['See the Documentation folder'](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation).
+[See the Documentation folder](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation).
 
 
 This sketch uses the Arduino Mega and the Wiznet 5100 ethernet shield.
