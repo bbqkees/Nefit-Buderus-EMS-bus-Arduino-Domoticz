@@ -702,7 +702,7 @@ void loop(){
 
     if(millis() - lastTime > interval) {
     lastTime = millis(); 
-   for (int i = 0; i<=NEFIT_REG_MAX; i++){
+   for (int i = 0; i<NEFIT_REG_MAX; i++){
    nefitSerial.print("nefitRegister["); nefitSerial.print(i); nefitSerial.print("]: ");
    nefitSerial.println(nefitRegister[i]);}
   nefitSerial.println("------------------------");
