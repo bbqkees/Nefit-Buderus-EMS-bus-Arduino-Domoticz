@@ -9,8 +9,14 @@ In the case of the EMS bus we have to do something specific; detect and send a E
 In some (older) serial systems and also in the case of the EMS bus a BREAK condition is used to signal the end of a data transmission.<br>
 In general, a BREAK condition on a serial interface is a condition where a zero level ('0') is send to the bus for a duration longer than one character.
 In the case of the EMS bus a BREAK condition is a 11 bit sequence of zero's.<br>
-Although the Atmel microcontroller itself can detect a BREAK condition, this function is not available in the Arduino Serial library. Therefore this function needs to be added.
+Although the Atmel microcontroller itself can detect a BREAK condition on the lowest level, a detection function is not available in the higher level Arduino Serial library. Therefore this function needs to be added.
 Furthermore there is also no function to generate such a BREAK condition. This also needs to be added.
+
+### Detecting the BREAK condition
+If the Atmel microcontroller 'detects' a BREAK, it will interpret this as a frame error (FE) and set a certain bit (FEn) in a register (USART Control and Status Register A). This register for most Arduino AVR's is UCSR0A and the bit is FE0 (bit 4). If you use another serial port, it might be f.i. register UCSR1A. This register value must be read (and set) at the right moment.
+
+### Generating a BREAK condition
+To generate a BREAK condition, data reception is temporarily halted. Then parity is changed to to even and a break-character is sent (basically a 0 byte). After the break character settings are restored and reception is re-enabled.
 
 ## Which library is used as a template?
 The mid 2012 version of the Arduino Serial library. <br>
@@ -19,7 +25,7 @@ In the mean time the Arduino Serial Library has been heavily modified, but for m
 ## What additions are made to the Arduino Serial library?
 The functions writeEOF() to write the EMS BREAK condition and frameerror() to detect the EMS BREAK condition on the bus.<br>
 
-## What other modifcations were made?
+## What other modifications were made?
 The write() function has been modified. Also the store_char() function has been changed to include the frame error detection.<br>
 (Basically everything containing 'error' was added).
 
