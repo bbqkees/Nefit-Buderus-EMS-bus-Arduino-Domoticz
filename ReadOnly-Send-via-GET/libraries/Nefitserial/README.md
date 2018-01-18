@@ -13,17 +13,23 @@ Although the Atmel microcontroller itself can detect a BREAK condition, this fun
 Furthermore there is also no function to generate such a BREAK condition. This also needs to be added.
 
 ## Which library is used as a template?
-The early 2012 version of the Arduino Serial library. <br>
-In the mean time the Arduino Serial Library has been heavily modified, but for most cases this replacement still works.
+The mid 2012 version of the Arduino Serial library. <br>
+In the mean time the Arduino Serial Library has been heavily modified, but for most cases the NefitSerial library still works as a full drop-in replacement.
 
 ## What additions are made to the Arduino Serial library?
 The functions writeEOF() to write the EMS BREAK condition and frameerror() to detect the EMS BREAK condition on the bus.<br>
-Furthermore the write() function has been modified.
+
+## What other modifcations were made?
+The write() function has been modified. Also the store_char() function has been changed to include the frame error detection.<br>
+(Basically everything containing 'error' was added).
 
 ## Can we omit the use of the Nefitserial library?
 To some extent yes. <br>
 It is possible to simulate the BREAK condition by temporarily ending the serial port, change it to a digital output LOW and after a short delay start the serial port again.<br>
-You can do this by performing the sequence endSerial(), DigitalWrite (0,1); delay(x), and then reinitiate the serial port again.
+You can do this by performing the sequence endSerial(), DigitalWrite (0,1); delay(x), and then reinitiate the serial port again.<br>
+This leaves us with detecting the BREAK when it occurs. For this I have no easy workaround at the moment.
 
-## Can we port your sketch to the ESP8266?
-The ESP also has a detection method for the BREAK signal. See the ESP UART documentation section 'Error detection interrupt'.
+## Can we port your sketch/concept to the ESP8266?
+This will require some work, but it is possible.
+The ESP also has a detection method for the BREAK signal. See the ESP UART documentation section 'Error detection interrupt'.<br>
+Check example code for the DMX512 protocol to see how the BREAK is implemented there.
