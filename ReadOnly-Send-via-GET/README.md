@@ -3,9 +3,10 @@ This folder contains two Arduino sketches that read the bus, decode the data and
 
 The main file EMSbusReceiveExample1.ino contains lots of comments to help you understand how it works. The file EMSBusReceiveMinimalExample.ino only contains the minimum of code to just read the bus. Only the main file is actively maintained at this moment.
 
-The Arduino sketch uses a modified Arduino Serial library. It is included.
-The library that was modified is a pretty old one, I am planning to incorporate the changes into the latest Arduino Serial library.
-However, it will work for most purposes with this old library.
+The Arduino sketch uses a modified Arduino Serial library which you need to use instead of the normal Arduino Serial library.
+It is included.<br>
+The library that was modified is a pretty old one. However, it will work for most purposes with this old library.<br>
+Please see the [README file](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/ReadOnly-Send-via-GET/libraries/Nefitserial/README.md) of the library folder for all the details.
 
 In the code of the main file ALL pieces are already there to send data to the EMS bus, I have not tested this.
 The parts I did not need to acquire the bus data, I commented out or just ignored.
