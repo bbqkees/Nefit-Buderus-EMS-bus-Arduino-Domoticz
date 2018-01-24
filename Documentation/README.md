@@ -36,7 +36,20 @@ You can use this circuit also to directly interface with the Raspberry Pi UART. 
 The Arduino has 5V compatible UARTS, the Raspberry Pi has 3,3V compatible UARTS.<br>
 Replace the 4k7 resistor on the right (next to RX_OUT) by a voltage divider consisting of one 20k resistor and one 10k resistor in series. Put the 20k resistor where the 4k7 resistor is, and in series to that one connect the 10k resistor to ground. Now connect the RX_OUT to the point between the 20k and the 10k resistor. Keep in mind the circuit still needs a 5V power supply.
 
-### Powering your circuit from the bus itself
+## EMS bus interface locations
+The EMS bus is usually available at two locations; at the front and/or inside the boiler.
+
+### Front service jack
+On most boilers there is a 3,5mm service jack at the front of the boiler.
+
+![EMS service jack pinout](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/EMS-bus-jack-pinout.JPG?raw=true)
+
+### EMS Thermostat clamps
+Aside from the front service jack, you can also connect the 2 EMS bus wires to the thermostat clamps on the inside interface of the boiler. You can connect these in parallel to a EMS thermostat if needed. The EMS bus is a shared bus that allows for multiple devices on the same bus. If needed, you can also put it in parallel where the thermostat is mounted on the wall. 
+
+![EMS thermostat clamps](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-bus-on-boiler.JPG)
+
+## Powering your circuit from the bus itself
 I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.<br>
 I have successfully drawn a nice 400mA load at about 7,5V DC between the EMS- and 12V pin on my own boiler (with no other devices connected to the bus).<br>
 Nefit sells a WiFi service adapter that only plugs into the front service jack, so aside from a thermostat you can also power some stuff from this service jack.
@@ -50,19 +63,6 @@ Now connect a diode that will take at least 250mA and ideally a 300mA fuse in se
 Internally, Vin of the Arduino is directly connected to the input of both the 5V and 3,3V voltage regulator on the board. The diode you need to insert is for reverse voltage protection. The fuse is to protect the EMS bus from current overdraw.<br>
 Likely you will see a voltage drop on Vin. If the voltage gets below 7V, you cannot reliably power the Arduino from the bus.<br>
 If your thermostat turns off or it does not work well anymore, there is a possibility that too much current is drawn. Also in this case you cannot power the Arduino from the bus.<br> If you do not get any real problems at this point, at least make sure the 5V voltage regulator of the Arduino does not overheat.
-
-## EMS bus interface locations
-The EMS bus is usually available at two locations; at the front and/or inside the boiler.
-
-### Front service jack
-On most boilers there is a 3,5mm service jack at the front of the boiler.
-
-![EMS service jack pinout](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/EMS-bus-jack-pinout.JPG?raw=true)
-
-### EMS Thermostat clamps
-Aside from the front service jack, you can also connect the 2 EMS bus wires to the thermostat clamps on the inside interface of the boiler. You can connect these in parallel to a EMS thermostat if needed. The EMS bus is a shared bus that allows for multiple devices on the same bus. If needed, you can also put it in parallel where the thermostat is mounted on the wall. 
-
-![EMS thermostat clamps](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-bus-on-boiler.JPG)
 
 ## EMS bus protocol
 A typical EMS bus datagram looks like this:<br>
