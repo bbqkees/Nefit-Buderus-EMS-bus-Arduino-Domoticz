@@ -70,4 +70,7 @@ The bus datagram details and a large list of all frametypes can be found at het 
 For your reference there are two PDF's generated from that website with all the datagram details contained in this folder.
 [HERE](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/telegrammaufbau.pdf) and [HERE](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/telegramme.pdf).
 
+### Datagrams that are available without writing to the bus
+The boiler (UBA) will periodically send out datagrams 0x18 UBAMonitorFast and 0x34 UBAMonitorWWMessage.
+0x18 concerns status updates of the central heating part, and 0x34 updates of the tap water part.
 
