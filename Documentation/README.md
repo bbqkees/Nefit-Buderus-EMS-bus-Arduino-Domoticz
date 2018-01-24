@@ -37,10 +37,19 @@ The Arduino has 5V compatible UARTS, the Raspberry Pi has 3,3V compatible UARTS.
 Replace the 4k7 resistor on the right (next to RX_OUT) by a voltage divider consisting of one 20k resistor and one 10k resistor in series. Put the 20k resistor where the 4k7 resistor is, and in series to that one connect the 10k resistor to ground. Now connect the RX_OUT to the point between the 20k and the 10k resistor. Keep in mind the circuit still needs a 5V power supply.
 
 ### Powering your circuit from the bus itself
-I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.
-I have not tested this, but it should be possible to some extent.
-Nefit sells a WiFi service adapter that only plugs into the front service jack, so likely you can also power some stuff from this jack.
-I have no idea how much current you can draw from it, test it yourself if you need it.
+I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.<br>
+I have successfully drawn a nice 400mA load at about 7,5V DC between the EMS- and 12V pin on my own boiler (with no other devices connected to the bus).<br>
+Nefit sells a WiFi service adapter that only plugs into the front service jack, so aside from a thermostat you can also power some stuff from this service jack.
+I have no idea how much current you can actually draw from it, test it yourself if you need it.
+Likely also the amount of EMS devices on the bus will affect the available power.<br>
+The combination of the level shifter circuit, an Arduino Mega 2560 and the ethernet shield draws about 210mA at 5V.<br>
+So in theory you could power the entire combination from the front service jack. However, your mileage may vary and of course any testing you do is at your own risk.<br>
+If you want to do this anyway, first connect the entire combination to the EMS- and EMS+ pins. Do not yet connect an external power supply or USB cable to the Arduino.<br>
+Then measure the voltage between the 12V pin and GND of the Arduino.<br> If this voltage is positive, above 7V and does not exceed 12V it should be safe for powering the Arduino.<br> The maximum input voltage for most Arduino's is 20V, but at this level the voltage converter on the Arduino will get too hot very quickly.<br>
+Now connect a diode that will take at least 250mA and ideally a 300mA fuse in series with this 12V pin and connect this to Vin of the Arduino.<br>Vin is located on the power header of the Arduino, next to GND.
+Internally, Vin of the Arduino is directly connected to the input of both the 5V and 3,3V voltage regulator on the board. The diode you need to insert is for reverse voltage protection. The fuse is to protect the EMS bus from current overdraw.<br>
+Likely you will see a voltage drop on Vin. If the voltage gets below 7V, you cannot reliably power the Arduino from the bus.<br>
+If your thermostat turns off or it does not work well anymore, there is a possibility that too much current is drawn. Also in this case you cannot power the Arduino from the bus.<br> If you do not get any real problems at this point, at least make sure the 5V voltage regulator of the Arduino does not overheat.
 
 ## EMS bus interface locations
 The EMS bus is usually available at two locations; at the front and/or inside the boiler.
