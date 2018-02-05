@@ -31,14 +31,14 @@ EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0
 Depending on under which brand name these thermostats are sold they might have a different type name.
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
 This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
-**You do NOT need to have an EMS compatible thermostat if you only want to read out the boiler!**<br>
+**You do NOT need to have an EMS compatible thermostat if you only want to read out the common status messages from the boiler!**<br>
 Status updates regarding many parameters of the boiler are sent to the bus every 10 seconds.<br>
 I f.i. have an on/off thermostat zone control. So I do not have a Nefit thermostat at all. By connecting the EMS bus circuit to the service jack, I can still capture those status updates.<br>
 It is only if you want to read or write thermostat settings you need an EMS bus thermostat.
 
 ## Hardware:
 * EMS interface circuit
-* Arduino Mega + Wiznet Ethernet Shield
+* Arduino Mega 2560 + Wiznet Ethernet Shield
 * Raspberry Pi, PC or other device running Domoticz
 
 The EMS bus interface can be converted to TTL level by means of a simple circuit.
@@ -46,13 +46,13 @@ The TTL-converted signal can then be connected to one of the the Arduino UARTs.
 [See the Documentation folder](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation).
 
 
-This sketch uses the Arduino Mega and the Wiznet 5100 ethernet shield.
+This sketch uses the Arduino Mega 2560 and the Wiznet 5100 ethernet shield.
 You can also use another Arduino like the Uno but that one only has one hardware serial port.
 
 Serial1 is used for the EMS module.
-Serial is used to debug the output to PC. 
+Serial(0) is used to debug the output to PC. 
 EMS serial works with 9700 Baudrate and 8N1.
-For sending data to the EMS bus you need a modified Serial library. It's included in the project.
+You need a modified Serial library for the Arduino. It's included in the project.
 
 Arduino Mega:
 * Serial  on pins  0 (RX)  and 1 (TX),
@@ -61,7 +61,7 @@ Arduino Mega:
 * Serial3 on pins 15 (RX) and 14 (TX). 
 
 Arduino non-Mega:
-You cannot use Serial1, so you need to use Serial, which does not allow for debugging via serial.
+You cannot use Serial1, so you need to use Serial(0), which does not allow for combined debugging via serial.
 
 ## Where did you find all the information about the bus?
 http://www.mikrocontroller.net/topic/309075
