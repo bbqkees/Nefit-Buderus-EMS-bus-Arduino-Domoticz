@@ -34,5 +34,6 @@ The way the bus works is explained pretty well on the [EMS wiki](https://emswiki
 The EMS bus is controlled by the bus master, which is the UBA. Every bus device has its own bus address.<br>
 The bus master continuously polls known bus addresses.<br>
 If you want to read or write a certain register of a bus device (f.i. the UBA or the thermostat), you need to wait until you are polled and then you have a short window to send your request. The other device will then respond to your request.<br>
+The device we emulate is the Buderus service key, which has address 0x0B.<br> So you need to wait with your request until the bus master polls device ID 0x0B.<br>
 There are several functions in the sketch that help you read and write registers.<br>However, depending on what you intend to accomplish you need to use the functions to implement it. The sketch does not magically set the temperate on its own.
 
