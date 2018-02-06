@@ -29,6 +29,7 @@ Basically there are two ways to approach this. One is that you simply only passi
 You can just 'snif' the bus traffic with the receive circuit. Because the UBA (=boiler) sends out datagrams 0x18 and 0x34 about every 10 seconds you can acquire most of the parameters that the UBA has to offer.<br>The sketch as it is now will do that automatically. Just change the IP settings and device ID's of your domoticz devices and it will send lots of useful data to your Domoticz setup.
 
 ### Interacting with the bus
+If you want to read or write device settings you need to write to the bus. So you also need to implement the transmit part of the schematic.<br>
 The way the bus works is explained pretty well on the [EMS wiki](https://emswiki.thefischer.net/doku.php?id=wiki:ems:ems-telegramme#polling). However this is all in German, so I will give a short introduction here.<br>
 The EMS bus is controlled by the bus master, which is the UBA. Every bus device has its own bus address.<br>
 The bus master continuously polls known bus addresses.<br>
