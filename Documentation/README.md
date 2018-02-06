@@ -31,6 +31,13 @@ Here is the Rx part of the schematic on a small breadboard (working example, no 
 
 ![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-breadboard.JPG?raw=true)
 
+## Complete interface board
+I also created a complete interface board with 5V and 3.3V compatible UART interface.
+Please PM me on the Domoticz forum for more information.
+![EMS bus PCB](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/nefit-ems-bus-interface-PCB.jpg)
+
+
+
 ### Using this circuit for interfacing with a Raspberry Pi
 You can use this circuit also to directly interface with the Raspberry Pi UART. However, you need to make a small modification.<br>
 The Arduino has 5V compatible UARTS, the Raspberry Pi has 3,3V compatible UARTS.<br>
