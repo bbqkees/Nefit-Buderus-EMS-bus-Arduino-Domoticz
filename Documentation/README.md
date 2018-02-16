@@ -38,7 +38,7 @@ Replace the 4k7 resistor on the right (next to RX_OUT) by a voltage divider cons
 
 ## Complete interface board
 I also created a complete interface board with 5V and 3.3V compatible UART interface.
-Please PM me on the Domoticz forum for more information.<br>
+Please [PM](http://www.domoticz.com/forum/memberlist.php?mode=viewprofile&u=1736) me on the Domoticz forum for more information.<br>
 ![EMS bus PCB](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/nefit-ems-bus-interface-PCB.jpg)
 
 ## EMS bus interface locations
@@ -69,7 +69,8 @@ Internally, Vin of the Arduino is directly connected to the input of both the 5V
 Likely you will see a voltage drop on Vin. If the voltage gets below 7V, you cannot reliably power the Arduino from the bus.<br>
 If your thermostat turns off or it does not work well anymore, there is a possibility that too much current is drawn. Also in this case you cannot power the Arduino from the bus.<br> If you do not get any real problems at this point, at least make sure the 5V voltage regulator of the Arduino does not overheat.<BR>
 ---DO NOT connect an external power supply to the Arduino if you have connected the 12V pin to Vin!---<br>
-A USB cable is safe because the Arduino has a internal switchover to Vin if both Vin and USB are connected.
+A USB cable is safe because the Arduino has a internal switchover to Vin if both Vin and USB are connected.<br>
+Furthermore keep in mind that when you are sending data to the bus, you are pulling the dataline low through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
 
 ## EMS bus protocol
 A typical EMS bus datagram looks like this:<br>
