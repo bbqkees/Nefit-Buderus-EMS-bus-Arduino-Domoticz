@@ -74,9 +74,11 @@ Furthermore keep in mind that when you are sending data to the bus, you are pull
 
 ## EMS bus protocol
 Although there are some variations, a typical EMS bus datagram looks like this:
+
 Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 .. n-2 | Byte n-1 | Byte n
 --- | --- | --- | --- | --- | --- | ---
 Sender | Receiver | Frametype | Offset | Data bytes | CRC | BREAK
+
 <br>
 The sequence starts with the sender ID (byte 1) and the intended receiver ID (byte 2). Byte 3 contains the frametype. The frametype is the identification of the type of message that is transmitted. A frametype basically represents a table. Byte 4 contains the offset in bytes in the particular frametype. So it is the index of the item in the table. Byte 5 and following contain the data. At the end of the message follows a CRC byte.<br>
 A datagram is terminated by a BREAK.<br>
@@ -89,6 +91,6 @@ For your reference there are two PDF's generated from that website with all the 
 [HERE](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/telegrammaufbau.pdf) and [HERE](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/telegramme.pdf).
 
 ### Datagrams that are available without writing to the bus
-The boiler (UBA) will periodically send out datagrams 0x18 UBAMonitorFast and 0x34 UBAMonitorWWMessage.
+The boiler (UBA) will periodically send out datagrams 0x18 UBAMonitorFast and 0x34 UBAMonitorWWMessage.<br>
 0x18 concerns status updates of the central heating part, and 0x34 updates of the tap water part.
 
