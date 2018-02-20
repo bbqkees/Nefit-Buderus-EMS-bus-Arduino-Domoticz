@@ -73,9 +73,10 @@ A USB cable is safe because the Arduino has a internal switchover to Vin if both
 Furthermore keep in mind that when you are sending data to the bus, you are pulling the dataline low through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
 
 ## EMS bus protocol
-A typical EMS bus datagram looks like this:<br>
- | Byte 1 |  Byte 2  |  Byte 3   | Byte 4 | Byte 5 .. n-2 | Byte n-1 | Byte n |<br>
- | Sender | Receiver | Frametype | Offset |  Data bytes   |   CRC    | BREAK  |<br>
+Although there are some variations, a typical EMS bus datagram looks like this:
+Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 .. n-2 | Byte n-1 | Byte n
+--- | --- | --- | --- | --- | --- | ---
+Sender | Receiver | Frametype | Offset | Data bytes | CRC | BREAK
 <br>
 The sequence starts with the sender ID (byte 1) and the intended receiver ID (byte 2). Byte 3 contains the frametype. The frametype is the identification of the type of message that is transmitted. A frametype basically represents a table. Byte 4 contains the offset in bytes in the particular frametype. So it is the index of the item in the table. Byte 5 and following contain the data. At the end of the message follows a CRC byte.<br>
 A datagram is terminated by a BREAK.<br>
