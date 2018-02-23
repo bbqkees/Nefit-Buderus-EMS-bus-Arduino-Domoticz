@@ -4,7 +4,7 @@ As soon as you have created the virtual sensors in Domoticz and have the Arduino
 
 Below a few examples:
 
-### Boiler out en return water temperature
+### Boiler out and return water temperature
 
 ![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/examples/nefit-in-out-temp1.JPG?raw=true)
 
@@ -24,5 +24,6 @@ Below a few examples:
 Domoticz only logs the data with 5 minute interval resolution for up to 7 days.<br>
 Older data is compressed to one daily value, which is not so useful.<br>
 Switch data is logged for up to 30 days.<br>
-If you want a better dashboard overview and every detail logged, have a look at InfluxDB together with Grafana.<br>
-
+If you want a better (or even beautiful) dashboard overview and every detail logged, have a look at InfluxDB together with [Grafana](https://grafana.com/).<br>
+Domoticz can send all data into InfluxDB which then can be used to create nice plots and dashboards.
+See the topic [here on the Domoticz forum](https://www.domoticz.com/forum/viewtopic.php?t=15088) for more information.
