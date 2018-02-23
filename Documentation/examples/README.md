@@ -4,3 +4,25 @@ As soon as you have created the virtual sensors in Domoticz and have the Arduino
 
 Below a few examples:
 
+### Boiler out en return water temperature
+
+![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/examples/nefit-in-out-temp1.JPG?raw=true)
+
+### Circulation pump on/off
+
+![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/examples/cv-pump1.JPG?raw=true)
+
+### System pressure (bar)
+
+![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/examples/cv-pressure1.JPG?raw=true)
+
+### Burner power (%)
+
+![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/examples/cv-burner-power1.JPG?raw=true)
+
+## Better log and plots
+Domoticz only logs the data with 5 minute interval resolution for up to 7 days.<br>
+Older data is compressed to one daily value, which is not so useful.<br>
+Switch data is logged for up to 30 days.<br>
+If you want a better dashboard overview and every detail logged, have a look at InfluxDB together with Grafana.<br>
+
