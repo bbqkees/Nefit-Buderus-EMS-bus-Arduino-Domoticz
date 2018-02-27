@@ -17,9 +17,18 @@ Furthermore if you have another thermostat than the RC20 you need to add the spe
 
 There might also be some left over redundant stuff in the code. You can ignore it or remove it.
 
+## Getting the data into Domoticz
+
 You need to create a virtual hardware and virtual devices in Domoticz for the sketch to send to.
-So if you want to see the burner percentage create a percentage sensor in Domoticz.
-Write down the ID so you can use it in the sketch.
+(Hardware-> new Dummy hardware -> Create virtual Sensors).
+After you added the Dummy hardware you can create virtual sensors.
+If you want to f.i. see the burner percentage create a percentage sensor in Domoticz.
+Write down the IDX so you can use it in the sketch (Devices -> search for device -> note IDX in second column).
+
+Copy the sketch and library to your disk (best method: click on the file, choose 'raw' and save), change the device IDX numbers and the IP address etc in the sketch to the values of your setup. Then upload the sketch to your Arduino.
+And for reading out the regular parameters you are done. Devices are updated every 30 seconds (or when they change).
+
+If you want to change the temperature you need the correct thermostat and some additional wrapping code that can write the correct EMS register.
 
 ## Methods to read and write to the bus
 
