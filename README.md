@@ -64,9 +64,13 @@ Arduino non-Mega:
 You cannot use Serial1, so you need to use Serial(0), which does not allow for combined debugging via serial.
 
 ## Where did you find all the information about the bus?
-http://www.mikrocontroller.net/topic/309075
-http://www.mikrocontroller.net/topic/141831
-https://emswiki.thefischer.net/doku.php?id=start
+It should be noted that the reverse-engineering of the EMS bus protocol was a major effort that involved many people. Most of it all started a few years ago on the mikrocontroller.net forum. Below two topics that hold all the original information:<br> 
+http://www.mikrocontroller.net/topic/309075<br>
+http://www.mikrocontroller.net/topic/141831<br>
+At a later stage all information got nicely bundled at:
+https://emswiki.thefischer.net/doku.php?id=start<br>
+<br>
+In the end I combined code acquired from 'Jvdmeer' from the Nodo forum with methods to interface with Domoticz and published it here with lots of additional documentation for all to use.
 
 ### How about MQTT instead of HTTP GET requests?
 That is on my list (maybe).
