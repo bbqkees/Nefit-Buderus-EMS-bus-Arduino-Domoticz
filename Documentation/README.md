@@ -15,12 +15,12 @@ The 100nF (=0,1uF) capacitor is a bypass capacitor to ensure a stable voltage fo
 Also do not forget to power the LM393 itself with 5V and ground on pins 8 and 4.<br> 
 <br>
 
-The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice.
+The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice. A tripping value of about 300mA or so seems like a good value.<br>
 The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~100 Ohm resistor. 
 
-There are more components that are not that strict, I used f.i. a LM339 instead of the LM393.
+There are more components that are not that strict, I used f.i. a LM339 instead of the LM393 on my breadboard.
 
-Furthermore the 4,7mH inductors are pretty huge, likely 4,7uH is the correct value.
+Furthermore the 4,7mH inductors are pretty huge, likely 4,7uH is the correct value (I used the latter value in my final designs).<br>
 
 One improvement to the circuit would be using optocouplers on the right side where you interface them with your logic.
 Without those in theory a voltage burst on the bus could destroy your Arduino or vice versa.
@@ -50,9 +50,12 @@ On most boilers there is a 3,5mm service jack at the front of the boiler.
 ![EMS service jack pinout](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/EMS-bus-jack-pinout.JPG?raw=true)
 
 ### EMS Thermostat clamps
-Aside from the front service jack, you can also connect the 2 EMS bus wires to the thermostat clamps on the inside interface of the boiler. You can connect these in parallel to a EMS thermostat if needed. The EMS bus is a shared bus that allows for multiple devices on the same bus. If needed, you can also put it in parallel where the thermostat is mounted on the wall. 
+Aside from the front service jack, you can also connect the 2 EMS bus wires to the thermostat clamps on the inside interface of the boiler. You can connect these in parallel to a EMS thermostat on the same terminal if needed. The EMS bus is a shared bus that allows for multiple devices on the same bus. If needed, you can also put it in parallel where the thermostat is mounted on the wall. 
 
 ![EMS thermostat clamps](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-bus-on-boiler.JPG)
+
+You can also use the on/off terminal for an on/off thermostat while simultaneously using the EMS bus terminal for the interface board. So if you have an on/off thermostat you can still communicate with the EMS bus. In fact I use this very setup at home.
+
 
 ## Powering your circuit from the bus itself
 I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.<br>
