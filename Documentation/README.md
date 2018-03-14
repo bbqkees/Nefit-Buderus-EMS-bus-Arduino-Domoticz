@@ -83,7 +83,7 @@ Byte 1 | Byte 2 | Byte 3 | Byte 4 | Byte 5 .. n-2 | Byte n-1 | Byte n
 Sender | Receiver | Frametype | Offset | Data bytes | CRC | BREAK
 
 <br>
-The sequence starts with the sender ID (byte 1) and the intended receiver ID (byte 2). Byte 3 contains the frametype. The frametype is the identification of the type of message that is transmitted. A frametype basically represents a table. Byte 4 contains the offset in bytes in the particular frametype. So it is the index of the item in the table. Byte 5 and following contain the data. At the end of the message follows a CRC byte.<br>
+The sequence starts with the sender ID (byte 1) and the intended receiver ID (byte 2). Byte 3 contains the frametype. The frametype is the identification of the type of message that is transmitted. A frametype basically represents a table. Byte 4 contains the offset in bytes in the particular frametype. So it is the index of the item in the table. Most of the time you receive the entire table anyway so this byte might not have the same meaning in every datagram. Byte 5 and following contain the data. At the end of the message follows a CRC byte.<br> 
 A datagram is terminated by a BREAK.<br>
 What the code does is listen on the bus for databytes until this BREAK appears. After the break it knows it has received a complete datagram. With all the datagram bytes in its buffer it will check if the first 3 bytes of the datagram match a known entry in the decoding list. If so, it will decode the datagram so you can use the value to send it to Domoticz.
 
