@@ -53,12 +53,14 @@ Serial1 is used for the EMS module.
 Serial(0) is used to debug the output to PC. 
 EMS serial works with 9700 Baudrate and 8N1.
 You need a modified Serial library for the Arduino. It's included in the project.
+The modified Serial libary and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board. ATSAMxx type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.
 
-Arduino Mega:
+Arduino Mega pinout:
 * Serial  on pins  0 (RX)  and 1 (TX),
 * Serial1 on pins 19 (RX) and 18 (TX),
 * Serial2 on pins 17 (RX) and 16 (TX),
 * Serial3 on pins 15 (RX) and 14 (TX). 
+You can choose any of the Serial ports on the Mega, the current sketch uses Serial1 but you can change that.
 
 Arduino non-Mega:
 You cannot use Serial1, so you need to use Serial(0), which does not allow for combined debugging via serial.
