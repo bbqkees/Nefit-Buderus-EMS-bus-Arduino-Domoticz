@@ -97,3 +97,10 @@ For your reference there are two PDF's generated from that website with all the 
 The boiler (UBA) will periodically send out datagrams 0x18 UBAMonitorFast and 0x34 UBAMonitorWWMessage.<br>
 0x18 concerns status updates of the central heating part, and 0x34 updates of the tap water part.
 
+## Be careful what parameters you write
+A number of the registers of the boiler are also writeable. However, this also means that you can send a wrong value to it. <br>For instance what if you would change the boiler flow temperature (Vorlauftemperatur/aanvoertemperatuur) from 45 to 90? Now if water of this temperature would reach your floor heating, you'll shurely damage it.<br>
+
+If you mess up completely and the boiler locks up, you need to do a factory reset of the boiler.<br>Usually this is achieved by pressing a certain combination of buttons on the boiler. Check the installation manual of your boiler.<br> It is a good idea to make a note of all boiler settings before you start sending commands to the bus, so you'll know the right default settings just in case. 
+
+
+
