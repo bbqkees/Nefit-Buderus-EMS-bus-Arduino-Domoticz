@@ -36,6 +36,8 @@ You can use this circuit also to directly interface with the Raspberry Pi UART. 
 The Arduino has 5V compatible UARTS, the Raspberry Pi has 3,3V compatible UARTS.<br>
 Replace the 4k7 resistor on the right (next to RX_OUT) by a voltage divider consisting of one 20k resistor and one 10k resistor in series. Put the 20k resistor where the 4k7 resistor is, and in series to that one connect the 10k resistor to ground. Now connect the RX_OUT to the point between the 20k and the 10k resistor. Keep in mind the circuit still needs a 5V power supply.
 
+Another option is to power the whole circuit as-is with 3.3V and replace the mentioned 4k7 resistor with a 100 Ohm resistor.
+
 ## Complete interface board
 I also created a complete interface board with 5V and 3.3V compatible UART interface.
 Please [PM](http://www.domoticz.com/forum/memberlist.php?mode=viewprofile&u=1736) me on the Domoticz forum for more information.<br>
