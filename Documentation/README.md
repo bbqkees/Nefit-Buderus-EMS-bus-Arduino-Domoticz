@@ -107,7 +107,8 @@ If you mess up completely and the boiler locks up, you need to do a factory rese
 # Further documentation on this Github
 Every folder on this Github has its own README file with lots of additional information.<br>
 [Infopage on the Arduino sketches](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Arduino-Code)<br>
-[Infopage on the nefitSerial Library](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Arduino-Code/libraries/Nefitserial)
+[Infopage on the nefitSerial Library](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Arduino-Code/libraries/Nefitserial)<br>
+[Example log files in Domoticz](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation/examples)
 
 
 
