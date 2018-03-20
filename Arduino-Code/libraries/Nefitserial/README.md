@@ -1,10 +1,15 @@
 # Note
-This library is only compatible with Arduino boards that have an Atmel ATmega type microcontroller like the Uno and the Mega.
+*This library is only compatible with Arduino boards that have an Atmel ATmega type microcontroller like the Uno and the Mega (2560).*<br>
 
-## Why do we need a different serial library?
-The Arduino system is based around certain Atmel microcontrollers.
-For ease of use f.i. libraries were created so you can design a high level sketch without the need to bother about highly specific hardware access to those microcontrollers.
-To access the serial ports (UARTS) of the Atmel microcontroller you can use the Arduino Serial library.<br>
+## Why is only the ATmega type supported?
+Each microcontroller architecture has its own set of Arduino libraries to interface with the hardware. So a Serial library for an ATmega based Arduino Uno is different from a Serial library for a SAMD21 based Arduino M0. This is also true for f.i. the ESP8266 and the ESP32.<br>
+Although you can program all those boards with the Arduino IDE as well, they bring their own set of libraries with them. 
+Because the NefitSerial library is based on the ATmega Arduino Serial library, it is therefore only compatible with the ATmega based boards.
+
+## Why do we need a different serial library anyway?
+The Arduino system is based around certain (Atmel) microcontrollers.
+For ease of use these libraries were created so you can design a high level sketch without the need to bother about highly specific hardware access to those microcontrollers.
+To access the serial ports (UART) of the Atmel microcontroller you can use the Arduino Serial library.<br>
 Although these libraries are mostly pretty complete, sometimes you need to do something more specific.<br>
 In the case of the EMS bus we have to do something really specific; detect and send a EMS BREAK signal.
 
@@ -22,7 +27,7 @@ If the Atmel microcontroller 'detects' a BREAK, it will interpret this as a fram
 To generate a BREAK condition, data reception is temporarily halted. Then parity is changed to to even and a break-character is sent (basically a 0 byte). After the break character settings are restored and reception is re-enabled.
 
 ## Which library is used as a template?
-The mid 2012 version of the Arduino Serial library. <br>
+The mid 2012 version of the core Arduino Serial library. <br>
 In the mean time the Arduino Serial Library has been heavily modified, but for most cases the NefitSerial library still works as a full drop-in replacement.
 
 ## What additions are made to the Arduino Serial library?
@@ -44,6 +49,7 @@ This will require some work, but it is possible. To get you started:
 ### ESP8266
 The ESP8266 has a detection method for the BREAK signal. <br>See the ESP UART documentation section 'Error detection interrupt'.<br>
 Check example code for the DMX512 protocol to see how the BREAK is implemented there.
+The ESP8266 serial interface is pretty inconvenient to work with, so I suggest you start with the ESP32 instead. 
 
 ### ESP32
 The ESP32 has a built-in method in the ESP-IDF UART API to send data with a BREAK condition. See [here](http://esp-idf.readthedocs.io/en/latest/api-reference/peripherals/uart.html#_CPPv227uart_write_bytes_with_break11uart_port_tPKc6size_ti).<br>
