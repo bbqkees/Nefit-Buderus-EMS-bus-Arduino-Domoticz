@@ -8,11 +8,11 @@ It is included.<br>
 The library that was modified is a pretty old one. However, it will work for most purposes with this old library.<br>
 Please see the [README file](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Arduino-Code/libraries/Nefitserial/README.md) of the library folder for all the details.
 
-In the code of the main file ALL pieces are already there to send data to the EMS bus, I have not tested this.
+In the code of the main file ALL pieces are already there to send data to the EMS bus, I have tested it and it all works but in my situation I only need the read parts.
 The parts I did not need to acquire the bus data, I commented out or just ignored.
 What is not in there is fetching the HTTP GET requests from Domoticz (so you can send commands from Domoticz to the Arduino).
 
-If you intend to send data, you also need to change the thermostat type in the writeRegister() function!
+If you intend to send data to the thermostat, you also need to change the thermostat type in the writeRegister() function!
 Furthermore if you have another thermostat than the RC20 you need to add the specific commands in the regNefitCoding array to read and write that thermostat.
 
 There might also be some left over redundant stuff in the code. You can ignore it or remove it.
@@ -23,19 +23,38 @@ You need to create a virtual hardware and virtual devices in Domoticz for the sk
 (Hardware-> new Dummy hardware -> Create virtual Sensors).
 After you added the Dummy hardware you can create virtual sensors.
 If you want to f.i. see the burner percentage create a percentage sensor in Domoticz.
-Write down the IDX so you can use it in the sketch (Devices -> search for device -> note IDX in second column).
+Write down the IDX number so you can use it in the sketch (Devices -> search for device -> note IDX in second column).
 
-Copy the sketch and library to your disk (best method: click on the file, choose 'raw' and save), change the device IDX numbers and the IP address etc in the sketch to the values of your setup. Then upload the sketch to your Arduino.
+Copy the sketch and library to your disk (best method: click on the file, choose 'raw' and save).<br>
+Add the nefitSerial library in the correct Arduino folder on your computer (While the Arduino IDE is closed).<br>
+Next open the sketch in the Arduino IDE and change the device IDX numbers and the IP address etc in the sketch to the values of your setup.<br>
+Choose the correct board type and COM port in the board manager and then upload the sketch to your Arduino.<br>
 And for reading out the regular parameters you are done. Devices are updated every 30 seconds (or when they change).
+If you use Serial(0) for communication with the EMS bus make sure you remove EMS circuit from the Arduino because Serial(0) is also used when you program the board.
 
 If you want to change the temperature you need the correct thermostat and some additional wrapping code that can write the correct EMS register.
 
-## Methods to read and write to the bus
+### Arduino compiling errors
+Please do not open an issue for simple compiling errors which include `...somethingsomething...was not declared in this scope`.
+These are errors meaning the resource or variable is not there.<br><br>
+If you get a message during compiling like `'nefitSerial' was not declared in this scope.` then you did not correctly install the nefitSerial library.<br><br>
+If you get a message `nefitSerial1 was not declared in this scope` you are compiling the sketch for an Arduino that does not have Serial1. So you need to use Serial instead. Keep in mind that you cannot debug the sketch when you only have 1 Serial port.<br><br>
+The error message `Error compiling for board ...someboardsomeboard` means you are compiling the sketch for a non-ATmega based Arduino board. As mentioned in the documentation, the nefitSerial library is only compatible with ATmega based Arduino boards.<br><br>
+You can program f.i. an ESP8266 with the Arduino IDE but is only possible because the ESP8266 includes its own serial libraries into the Arduino IDE.
+<br><br>
+One less commen error is `HardwareSerial0.cpp.o (symbol from plugin): In function Serial: (.text+0x0): multiple definition of __vector_25`. This error means another library wants to use the original Serial library.
+See [issue 6.](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/issues/6)
 
+### Other errors
+If you are encountering errors when compiling, first Google around for similar errors.<br>
+I don't mind helping you out if you are stuck but most compilation errors are easily resolved by one Google search.<br>
+If you can't solve it and need my help, see the closed issues first before opening a new issue.
+
+## Methods to read and write to the bus
 Basically there are two ways to approach this. One is that you simply only passively listen to the bus and the other method involves lots of interaction with the bus master.
 
 ### Passive listening/monitoring
-You can just 'snif' the bus traffic with the receive circuit. Because the UBA (=boiler) sends out datagrams 0x18 and 0x34 about every 10 seconds you can acquire most of the parameters that the UBA has to offer.<br>The sketch as it is now will do that automatically. Just change the IP settings and device ID's of your domoticz devices and it will send lots of useful data to your Domoticz setup.
+You can just 'sniff' the bus traffic with the receive circuit. Because the UBA (=boiler) sends out datagrams 0x18 and 0x34 about every 10 seconds you can acquire most of the parameters that the UBA has to offer.<br>The sketch as it is now will do that automatically. Just change the IP settings and device Idx numbers of your domoticz devices and it will send lots of useful data to your Domoticz setup.
 
 ### Interacting with the bus
 If you want to read or write device settings you need to write to the bus. So you also need to implement the transmit part of the schematic.<br>
