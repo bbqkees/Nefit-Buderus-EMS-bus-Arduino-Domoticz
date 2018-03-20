@@ -27,8 +27,9 @@ Most of these are already reverse-engineered. Some are not.
 Below the list of thermostats which should work fine.
 
 ## Thermostat support
-EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).
-Depending on under which brand name these thermostats are sold they might have a different type name.
+EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).<br>
+Depending on under which brand name these thermostats are sold they might have a different type name.<br>
+The RC30 is equal to the Nefit Moduline 300 and the RC35 is likely equal to the Moduline 400.<br>
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
 This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
 **You do NOT need to have an EMS compatible thermostat if you only want to read out the common status messages from the boiler!**<br>
@@ -54,7 +55,7 @@ Serial(0) is used to debug the output to PC.
 EMS serial works with 9700 Baudrate and 8N1.
 You need a modified Serial library for the Arduino. It's included in the project.
 
-*The modified Serial libary and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board like the Uno and Mega. ATSAMxx (ARM) type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.*
+*The modified Serial library and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board like the Uno and Mega. ATSAMxx (ARM) type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.*
 
 Arduino Mega pinout:
 * Serial  on pins  0 (RX)  and 1 (TX),
