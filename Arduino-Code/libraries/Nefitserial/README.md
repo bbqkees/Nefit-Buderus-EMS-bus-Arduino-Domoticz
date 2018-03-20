@@ -1,9 +1,12 @@
-# Why do we need a different serial library?
+# Note
+This library is only compatible with Arduino boards that have an Atmel ATmega type microcontroller like the Uno and the Mega.
+
+## Why do we need a different serial library?
 The Arduino system is based around certain Atmel microcontrollers.
 For ease of use f.i. libraries were created so you can design a high level sketch without the need to bother about highly specific hardware access to those microcontrollers.
 To access the serial ports (UARTS) of the Atmel microcontroller you can use the Arduino Serial library.<br>
 Although these libraries are mostly pretty complete, sometimes you need to do something more specific.<br>
-In the case of the EMS bus we have to do something specific; detect and send a EMS BREAK signal.
+In the case of the EMS bus we have to do something really specific; detect and send a EMS BREAK signal.
 
 ## EMS BREAK condition
 In some (older) serial systems and also in the case of the EMS bus a BREAK condition is used to signal the end of a data transmission.<br>
@@ -36,7 +39,7 @@ You can do this by performing the sequence endSerial(), DigitalWrite (0,1); dela
 This leaves us with detecting the BREAK when it occurs. For this I have no easy workaround at the moment.
 
 ## Can we port your sketch/concept to the ESP?
-This will require some work, but it is possible. To get you going:
+This will require some work, but it is possible. To get you started:
 
 ### ESP8266
 The ESP8266 has a detection method for the BREAK signal. <br>See the ESP UART documentation section 'Error detection interrupt'.<br>
