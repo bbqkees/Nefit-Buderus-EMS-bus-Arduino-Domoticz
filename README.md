@@ -15,7 +15,7 @@ Usage is not limited to Domoticz, you can extract the decoding part for other pu
 ## Boiler support
 Reading the EMS bus:
 Should support all boilers using the EMS databus.
-This includes most Bosch boiler brands like Nefit, Buderus, Worcester.
+This includes most Bosch boiler brands like Nefit, Buderus, Worcester and some Junkers.
 Datagrams containing status updates are periodically sent out by the boiler with source ID 0x08.
 You only need to listen in. No data requests are needed for most boilers.<br>
 However, several types of data are only send when the specific device on the bus is polled. For this you need to write to the bus.
@@ -38,7 +38,7 @@ It is only if you want to read or write thermostat settings you need an EMS bus 
 
 ## Hardware:
 * EMS interface circuit
-* Arduino Mega 2560 + Wiznet Ethernet Shield
+* Arduino Mega 2560 Rev3 + Arduino Ethernet Shield with Wiznet w5100
 * Raspberry Pi, PC or other device running Domoticz
 
 The EMS bus interface can be converted to TTL level by means of a simple circuit.
@@ -54,7 +54,7 @@ Serial(0) is used to debug the output to PC.
 EMS serial works with 9700 Baudrate and 8N1.
 You need a modified Serial library for the Arduino. It's included in the project.
 
-*The modified Serial libary and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board. ATSAMxx type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.*
+*The modified Serial libary and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board like the Uno and Mega. ATSAMxx (ARM) type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.*
 
 Arduino Mega pinout:
 * Serial  on pins  0 (RX)  and 1 (TX),
@@ -82,7 +82,7 @@ For now it works exactly like my other Github project ['Vbus-Arduino-Domoticz'](
 ### How about serial output instead of HTTP GET requests?
 If you use a Mega, this is very easy to accomplish.
 Just check f.i. ['this website'](https://wiki.sgripon.net/doku.php/add_temperature_and_humidity_sensor_dht11_in_domoticz).
-It will not work easily with an Uno, because you would need to use the software serial for reading the bus, this would also need modification to its library. But a Mega is only a few Euro/Dollar on Ebay or Aliexpress anyway.
+It will not work easily with an Uno, because you would need to use the software serial for reading the bus, this would also need modification to its library. But a Mega 2560 Rev3 is only a few Euro/Dollar on Ebay or Aliexpress anyway.
 
 #### Additional credits
 Sketch is based on the EMS sketches from 'Jvdmeer' from the Nodo forum.
