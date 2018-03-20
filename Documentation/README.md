@@ -104,5 +104,10 @@ A number of the registers of the boiler are also writeable. However, this also m
 
 If you mess up completely and the boiler locks up, you need to do a factory reset of the boiler.<br>Usually this is achieved by pressing a certain combination of buttons on the boiler. Check the installation manual of your boiler.<br> It is a good idea to make a note of all boiler settings before you start sending commands to the bus, so you'll know the right default settings just in case. 
 
+# Further documentation on this Github
+Every folder on this Github has its own README file with lots of additional information.<br>
+[Infopage on the Arduino sketches](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Arduino-Code)<br>
+[Infopage on the nefitSerial Library](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Arduino-Code/libraries/Nefitserial)
+
 
 
