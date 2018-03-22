@@ -181,7 +181,8 @@ long interval = 10000;
 long lastTimeeth = 0;  
 long intervaleth = 30000;
 
-int IDXcvpressure = 000; // Set here your own Domoticz ID's
+// Set here your own Domoticz Idx numbers
+int IDXcvpressure = 000; 
 int IDXburnerpower = 000;
 int IDXburner = 000;
 int IDXboiler = 000;
@@ -189,6 +190,7 @@ int IDXcvreturn = 000;
 int IDXsupply = 000;
 int IDXhotwater = 000;
 int IDXcvpump = 000;
+// End of user Idx numbers
 
 float lastcvpressure = 0;
 float lastburnerpower = 0;
