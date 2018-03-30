@@ -13,23 +13,52 @@ You can then send the values via HTTP GET requests to Domoticz or do whatever yo
 Usage is not limited to Domoticz, you can extract the decoding part for other purposes.
 
 ## Boiler support
-Reading the EMS bus:
+**Reading the EMS bus:**
 Should support all boilers using the EMS databus.
 This includes most Bosch boiler brands like Nefit, Buderus, Worcester and some Junkers.
 Datagrams containing status updates are periodically sent out by the boiler with source ID 0x08.
 You only need to listen in. No data requests are needed for most boilers.<br>
 However, several types of data are only send when the specific device on the bus is polled. For this you need to write to the bus.
 
-Writing to the EMS bus:
-To change the temperature and other settings you need to write to the *thermostat* on the bus.
+**Writing to the EMS bus:**
+To change the temperature and other settings you need to write to the *thermostat* on the bus. This needs to be a EMS thermostat.
 Depending on the thermostat on your wall you need to send specific commands.
 Most of these are already reverse-engineered. Some are not.
 Below the list of thermostats which should work fine.
 
+### Nefit and Bosch boiler types with EMS bus
+*This is list incomplete and only for quick reference, check the installation manual first*
+- Nefit 9000i
+- Nefit TopLine
+- Nefit TrendLine
+- Nefit ProLine (only the non-NxT!)
+- Nefit SmartLine
+- Nefit BaseLine
+- Bosch Compact
+- Nefit EcomLine Elite (Just the Elite, older sub types often have another bus!)
+
+### Nefit and Bosch boiler types with -NO- EMS bus
+The following boilers have no EMS bus and are thus not supported:<br>
+- Older Nefit EcomLine models like the VR24V, HR(C), Economy, HRC23VT.
+- Nefit ProLine NxT
+- Bosch HRC / HRC Top / HRS Top
+- Bosch HRCII / HRSII
+- Nefit Turbo
+- Bosch Condens 3000W / 6000W
+
+
 ## Thermostat support
 EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).<br>
 Depending on under which brand name these thermostats are sold they might have a different type name.<br>
+
+EMS code | Buderus type | Nefit type
+---|---|---
+0x17|RC20|Moduline 200
+0x10|RC30|Moduline 300
+0x10|RC35|Moduline 400
+
 The RC30 is equal to the Nefit Moduline 300 and the RC35 is likely equal to the Moduline 400.<br>
+The RC20 is likely equal to the Nefit Moduleline 200.<br>
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
 This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
 **You do NOT need to have an EMS compatible thermostat if you only want to read out the common status messages from the boiler!**<br>
