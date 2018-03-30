@@ -57,7 +57,7 @@ EMS code | Buderus type | Nefit type | Image
 0x10|RC30|Moduline 300|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150">
 0x10|RC35|Moduline 400|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150">
 
-The RC30 is equal to the Nefit Moduline 300 and the RC35 is likely equal to the Moduline 400.<br>
+The RC30 is equal to the Nefit Moduline 300 and the RC35 is equal to the Moduline 400.<br>
 The RC20 is likely equal to the Nefit Moduleline 200.<br>
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
 This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
