@@ -35,12 +35,12 @@ Below the list of thermostats which should work fine.
 - Nefit SmartLine
 - Nefit BaseLine
 - Bosch Compact
-- Nefit EcomLine Elite (Just the Elite, older sub types often have another bus!)
+- Nefit EcomLine Elite (Just the Elite, older sub types often have the old iRT bus!)
 
 ### Nefit and Bosch boiler types with -NO- EMS bus
 The following boilers have no EMS bus and are thus not supported:<br>
-- Older Nefit EcomLine models like the VR24V, HR(C), Economy, HRC23VT.
-- Nefit ProLine NxT
+- Older Nefit EcomLine models like the VR24V, HR(C), Economy, HRC23VT (iRT protocol).
+- Nefit ProLine NxT (OpenTherm protocol)
 - Bosch HRC / HRC Top / HRS Top
 - Bosch HRCII / HRSII
 - Nefit Turbo
@@ -59,6 +59,16 @@ EMS code | Buderus type | Nefit type | Image
 
 The RC30 is equal to the Nefit Moduline 300 and the RC35 is equal to the Moduline 400.<br>
 The RC20 is likely equal to the Nefit Moduleline 200.<br>
+
+**Non supported thermostats**
+
+Buderus type | Nefit type | Image
+---|---|---
+iRT30|ModuLine 30|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-irt30.jpg" width="150">
+
+If you have an older thermostat looking like the one above, your boiler is **NOT** compatible with the EMS bus.
+
+
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
 This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
 **You do NOT need to have an EMS compatible thermostat if you only want to read out the common status messages from the boiler!**<br>
