@@ -53,6 +53,7 @@ Depending on under which brand name these thermostats are sold they might have a
 
 EMS code | Buderus type | Nefit type | Image
 ---|---|---|---
+0x17|RC10?|Moduline 100|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-moduline-100.JPG" width="150">
 0x17|RC20|Moduline 200|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline200.jpg" width="150">
 0x10|RC30|Moduline 300|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150">
 0x10|RC35|Moduline 400|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150">
