@@ -19,8 +19,9 @@ The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your c
 The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~100 Ohm resistor. 
 
 There are more components that are not that strict, I used f.i. a LM339 instead of the LM393 on my breadboard.
+In the schematic there are two BAT54S diodes but you can just use BAT46 for all. You can likely even pull off using 1N4148 everywhere.
 
-Furthermore the 4,7mH inductors are pretty huge, likely 4,7uH is the correct value (I used the latter value in my final designs).<br>
+Furthermore the 4,7mH inductors are pretty huge, likely 4,7uH is the correct value (I used the latter value in my final designs).<br> Probably someone got the multiplier wrong when decoding the value.
 
 One improvement to the circuit would be using optocouplers on the right side where you interface them with your logic.
 Without those in theory a voltage burst on the bus could destroy your Arduino or vice versa.
@@ -59,11 +60,13 @@ Aside from the front service jack, you can also connect the 2 EMS bus wires to t
 You can also use the on/off terminal for an on/off thermostat while simultaneously using the EMS bus terminal for the interface board. So if you have an on/off thermostat you can still communicate with the EMS bus. In fact I use this very setup at home.
 
 
-## Powering your circuit from the bus itself
-I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.<br>
+## Powering your circuit from the jack and the bus itself
+
+### Powering from the 12V service jack
+I got a few questions whether you could power the circuit and even the whole Arduino from the EMS bus or the 12V pin.<br> This pin is often not really 12V but in my case f.i. around 8V.<br>
 I have successfully drawn a nice 400mA at about 7,5V DC with a resistive test load between the EMS- and 12V pin on my own boiler (with no other devices connected to the bus).<br>
 Nefit sells a WiFi service adapter that only plugs into the front service jack, so aside from a thermostat you can also power some stuff from this service jack.
-I have no idea how much current you can actually draw from it, test it yourself if you need it.
+I have no idea how much current you may safely draw from it, test it yourself if you need it.
 Likely also the amount of EMS devices on the bus will affect the available power.<br>
 The combination of the level shifter circuit, an Arduino Mega 2560 and the ethernet shield draws about 210mA at 5V.<br>
 So in theory you could power the entire combination from the front service jack. However, your mileage may vary and of course any testing you do is at your own risk.<br>
@@ -75,7 +78,21 @@ Likely you will see a voltage drop on Vin. If the voltage gets below 7V, you can
 If your thermostat turns off or it does not work well anymore, there is a possibility that too much current is drawn. Also in this case you cannot power the Arduino from the bus.<br> If you do not get any real problems at this point, at least make sure the 5V voltage regulator of the Arduino does not overheat.<BR>
 ---DO NOT connect an external power supply to the Arduino if you have connected the 12V pin to Vin!---<br>
 A USB cable is safe because the Arduino has a internal switchover to Vin if both Vin and USB are connected.<br>
-Furthermore keep in mind that when you are sending data to the bus, you are pulling the dataline low through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
+Furthermore keep in mind that when you are sending data to the bus, you are pulling the bus low through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
+  
+### Powering from the EMS bus itself
+The EMS bus has a limited power supply but aside from the thermostat you can power something additional. But how much depends on what is already on the bus.
+
+#### Isolate your power supply circuit from the bus 
+What is important to note is that both data and power uses the same bus lines. So you need to separate your power supply circuit from the bus lines so it cannot interfere the transmission of data.
+There are several ways to do this. Either use a big diode in series between EMS+ and your power supply circuit, or use f.i. a NPN transistor instead with the base connected via a resistor to EMS+ so it is always 'on'.
+
+#### During transmission of data the bus is pulled low, so no power at those times
+During transmission the entire bus is pulled low every time a zero is transmitted. As a result during these times there is no power available so you need to create a large capacitor buffer to compensate for these drops in the bus.<br>
+The EMS thermostats deal with this by using 1F supercaps to store energy. But for hobby purposes you can use something like >1000uF caps rated at at least 25V (the bus is already 16V). Make sure you add these AFTER the series diode, otherwise you create a massive increase in rise and fall time and this will mess up bus data transmissions.<br>
+The use of LDO's is not a good idea because those kind of regulators dissipate the difference in heat and therefore are prone to overheating when you have a large voltage drop like in the case of the EMS bus (16 to 5V). 
+A simple buck converter is a better idea. These are also very cheap. 
+  
 
 ## EMS bus protocol
 Although there are some variations, a typical EMS bus datagram looks like this:
