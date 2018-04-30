@@ -1,8 +1,14 @@
 
-This folder contains two Arduino sketches that read the bus, decode the data and send selected values to Domoticz via HTTP GET requests if the value has changed.
+This folder contains Arduino sketches that f.i. read the bus, decode the data and send selected values to Domoticz via HTTP GET requests if the value has changed.
 
-The main file EMSbusReceiveExample1.ino contains lots of comments to help you understand how it works. The file EMSBusReceiveMinimalExample.ino only contains the minimum of code to just read the bus. Only the main file is actively maintained at this moment.
-
+The main file EMSbusReceiveExample1.ino contains lots of comments to help you understand how it all works. The file EMSBusReceiveMinimalExample.ino only contains the minimum of code to just read the bus. Only the main file is actively maintained at this moment.
+<br>
+EMSBusSimpleRegisterReadRequest.ino does only one thing: it requests a specific frame type from an EMS bus device.
+The result is printed via th debug Serial port.<br>
+You can use this to test sending data to the bus<br>
+<br>
+I have a few more example sketches on the way that dump all the data from the bus to the debug Serial port, and one that can set  specific registers of EMS bus devices.<br>So have a look here once in a while.
+<br>
 The Arduino sketch uses a modified Arduino Serial library which you need to use instead of the normal Arduino Serial library.
 It is included.<br>
 The library that was modified is a pretty old one. However, it will work for most purposes with this old library.<br>
