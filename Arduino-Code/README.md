@@ -1,15 +1,23 @@
 
 This folder contains Arduino sketches that f.i. read the bus, decode the data and send selected values to Domoticz via HTTP GET requests if the value has changed.
 
-The main file EMSbusReceiveExample1.ino contains lots of comments to help you understand how it all works. The file EMSBusReceiveMinimalExample.ino only contains the minimum of code to just read the bus. Only the main file is actively maintained at this moment.
-<br>
+### File info
+#### Main File EMSbusReceiveExample1.ino
+The main file EMSbusReceiveExample1.ino contains everything needed to send and retrieve data from the EMS bus. Lots of comments help you understand how it all works. 
+Only the main file is actively maintained at this moment.
+
+#### Sub file EMSBusReceiveMinimalExample.ino
+The file EMSBusReceiveMinimalExample.ino is a subset of the main file and only contains the minimum of code to just read the bus and send the data to Domoticz. 
+
+#### EMSBusSimpleRegisterReadRequest.ino
 EMSBusSimpleRegisterReadRequest.ino does only one thing: it requests a specific frame type from an EMS bus device.
-The result is printed via th debug Serial port.<br>
-You can use this to test sending data to the bus<br>
-<br>
+The result is printed via the debug Serial port.<br> You can use this to test sending data to the bus.<br>
+It is a partial rewrite of the main file in order to make it easier to understand and modify.<br>
+You do not need an Ethernet shield to use this sketch.
+
 I have a few more example sketches on the way that dump all the data from the bus to the debug Serial port, and one that can set  specific registers of EMS bus devices.<br>So have a look here once in a while.
 <br>
-The Arduino sketch uses a modified Arduino Serial library which you need to use instead of the normal Arduino Serial library.
+The Arduino sketches use a modified Arduino Serial library which you need to use instead of the normal Arduino Serial library.
 It is included.<br>
 The library that was modified is a pretty old one. However, it will work for most purposes with this old library.<br>
 Please see the [README file](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Arduino-Code/libraries/Nefitserial/README.md) of the library folder for all the details.
@@ -60,7 +68,7 @@ If you can't solve it and need my help, see the closed issues first before openi
 Basically there are two ways to approach this. One is that you simply only passively listen to the bus and the other method involves lots of interaction with the bus master.
 
 ### Passive listening/monitoring
-You can just 'sniff' the bus traffic with the receive circuit. Because the UBA (=boiler) sends out datagrams 0x18 and 0x34 about every 10 seconds you can acquire most of the parameters that the UBA has to offer.<br>The sketch as it is now will do that automatically. Just change the IP settings and device Idx numbers of your domoticz devices and it will send lots of useful data to your Domoticz setup.
+You can just 'sniff' the bus traffic with the receive circuit. Because the UBA (=boiler) sends out datagrams 0x18 and 0x34 about every 10 seconds you can acquire most of the parameters that the UBA has to offer.<br>The main sketch as it is now will do that automatically. Just change the IP settings and device Idx numbers of your domoticz devices and it will send lots of useful data to your Domoticz setup.
 
 ### Interacting with the bus
 If you want to read or write device settings you need to write to the bus. So you also need to implement the transmit part of the schematic.<br>
