@@ -147,7 +147,7 @@ PROGMEM const unsigned char regNefitCoding[]={
 0x08,0x18,0x07,0x50,					//#4   3 heating pump on/off
 0x08,0x18,0x07,0x60,					//#5   4 tap water heating on/off
 0x08,0x18,0x0B,0x05,					//#6   5 boiler temperature x 10
-0x08,0x18,0x0D,0x05,					//#7   6 temperature water in (cvreturn) x 10
+0x08,0x18,0x0D,0x05,					//#7   6 temperature water in (cv return) x 10
 0x08,0x18,0x11,0x06,					//#8   7 water pressure x 10
 0x08,0x18,0x12,0x02,					//#9   8 status code 1st letter
 0x08,0x18,0x13,0x02,					//#10  9 status code 2nd letter
@@ -512,7 +512,7 @@ int writeRegister(byte regnr, int val){
       while ((((long)millis()-timeout)<0)&&(ptr==0)){     // wait for answer
         if (nefitSerial1.available()) {
           ptr = readBytes(buffer);
-          if ((ptr>0)&&(buffer[0]==1)) {
+          if ((ptr>0)&&(buffer[0]==1)) {	//If the response is 0x01, the setting was succesfully written.
             nefitRegister[regnr] = xmitBuffer[4];
             result = 0;
             break;
