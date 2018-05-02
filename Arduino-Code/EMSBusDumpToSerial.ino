@@ -94,7 +94,7 @@ void setup() {
 
   //Init serial port debug
   nefitSerial.begin(9600);
-  nefitSerial.println("EMS bus request started.");
+  nefitSerial.println("EMS bus dump started.");
 }
 
 void loop() {
