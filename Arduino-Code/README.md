@@ -3,23 +3,23 @@ This folder contains Arduino sketches that f.i. read the bus, decode the data an
 
 ### File info
 #### Main File EMSbusReceiveExample1.ino
-**Needs:** *Arduino (Mega 2560 for debugging), Wiznet Ethernet shield and EMS circuit.*
+**Needs:** *Arduino (Mega 2560 for debugging), Wiznet Ethernet shield and EMS circuit.*<br>
 The main file EMSbusReceiveExample1.ino contains everything needed to send and retrieve data from the EMS bus. Lots of comments help you understand how it all works. 
 Only the main file is actively maintained at this moment.
 
 #### Sub file EMSBusReceiveMinimalExample.ino
-**Needs:** *Arduino (Mega 2560 for debugging), Wiznet Ethernet shield and EMS circuit.*
+**Needs:** *Arduino (Mega 2560 for debugging), Wiznet Ethernet shield and EMS circuit.*<br>
 The file EMSBusReceiveMinimalExample.ino is a subset of the main file and only contains the minimum of code to just read the bus and send the data to Domoticz. 
 
 #### EMSBusSimpleRegisterReadRequest.ino
-**Needs:** *Arduino Mega 2560 and EMS circuit.*
+**Needs:** *Arduino Mega 2560 and EMS circuit.*<br>
 EMSBusSimpleRegisterReadRequest.ino does only one thing: it requests a specific frame type from an EMS bus device.
 The result is printed via the debug Serial port.<br> You can use this to test sending data to the bus.<br>
 It is a partial rewrite of the main file in order to make it easier to understand and modify.<br>
 You do not need an Ethernet shield to use this sketch.
 
 #### EMSBusDumpToSerial.ino
-**Needs:** *Arduino Mega 2560 and EMS circuit.*
+**Needs:** *Arduino Mega 2560 and EMS circuit.*<br>
 EMSBusDumpToSerial.ino will print all datagrams it sees on the EMS bus on the bus to the Serial port.
 
 I have a few more example sketches on the way that f.i. can set specific registers of EMS bus devices.<br>So have a look here once in a while.
