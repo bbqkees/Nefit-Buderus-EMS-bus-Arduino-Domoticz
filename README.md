@@ -60,6 +60,8 @@ EMS code | Buderus type | Nefit type | Image
 
 The RC30 is equal to the Nefit Moduline 300 and the RC35 is equal to the Moduline 400.<br>
 The RC20 is likely equal to the Nefit Moduleline 200.<br>
+Although the hardware is identical (if you open up a ModuLine 400 it says 'RC35' on the PCB), the firmware may be a bit different. It appears there are slight differences in frametypes. However, as more people are using theses sketches this will be resolved over time.<br>
+Furthermore in principle all EMS bus thermostats can be supported. So this also includes the Nefit Easy and the new line of ModuLine series 1000, 2000, 3000 etc. For a new thermostat you need to log the data on the bus when you set the temperature on the thermostat and go through the log to find the correct messages.<br>If you have a newer Nefit/Bosch/Buderus EMS thermostat and you would like to help I can give a hand. You can contact me via the [Domoticz forum](http://www.domoticz.com/forum/memberlist.php?mode=viewprofile&u=1736).
 
 **Non supported thermostats**
 
@@ -72,7 +74,7 @@ If you have an older thermostat looking like the one above, your boiler is **NOT
 
 If your thermostat does not work, and you really want to change the temperature you might want to buy a supported model.<br>
 This Github page of [Danidata](https://github.com/danidata/Calduino-WiFly-Arduino-EMS-Buderus) has a very similar approach that works with the RC35.<br><br>
-**You do NOT need to have an EMS compatible thermostat if you only want to read out the common status messages from the boiler!**<br>
+**You do NOT need to have an EMS compatible thermostat or a thermostat on the bus at all if you only want to read out the common status messages from the boiler!**<br>
 Status updates regarding many parameters of the boiler are sent to the bus every 10 seconds.<br>
 I f.i. have an on/off thermostat zone control. So I do not have a Nefit thermostat at all. By connecting the EMS bus circuit to the service jack, I can still capture those status updates.<br>
 It is only if you want to read or write thermostat settings you need an EMS bus thermostat.
