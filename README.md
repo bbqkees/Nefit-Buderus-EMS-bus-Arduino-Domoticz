@@ -48,6 +48,10 @@ The following boilers have no EMS bus and are thus not supported:<br>
 
 
 ## Thermostat support
+
+For the most specific info have a look at the [EMS thermostat documentation page](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/EMS-Thermostats.md).
+
+Short info:<br>
 EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).<br>
 Depending on under which brand name these thermostats are sold they might have a different type name.<br>
 
