@@ -83,7 +83,11 @@ These thermostats work with heating zones. It supports up to 4 individual heatin
 For this thermostat have a look at the wonderful documentation of Danidata at his [blog](https://domoticproject.com/ems-bus-buderus-nefit-boiler/).
 
 #### Moduline 400 specifics
-It appears not all registers are the same as for the RC35. At the moment work is being done to figure out the control of the Moduline 400.
+If you open up the Nefit Moduline 400 the PCB clearly says "Buderus" and "RC35". See below. <br>
+<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/Thermostats/Moduline-400-PCB1.jpg" width="250"><br>
+However, it appears not all registers are the same as for the RC35. At the moment work is being done to figure out the control of the Moduline 400.<br>
+On the RC35 PCB you can clearly see the EMS bus interface and the super capacitor for storing energy.<br>
+<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/Thermostats/Moduline-400-PCB2.jpg" width="250"><br>
 
 ### Nefit Easy
 This is the newer WiFi enabled EMS bus thermostat.<br>
