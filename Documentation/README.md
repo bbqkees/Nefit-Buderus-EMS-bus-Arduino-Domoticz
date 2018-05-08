@@ -89,7 +89,10 @@ There are several ways to do this. Either use a big diode in series between EMS+
 
 #### During transmission of data the bus is pulled low, so no power at those times
 During transmission the entire bus is pulled low every time a zero is transmitted. As a result during these times there is no power available so you need to create a large capacitor buffer to compensate for these drops in the bus.<br>
-The EMS thermostats deal with this by using 1F supercaps to store energy. But for hobby purposes you can use something like >1000uF caps rated at at least 25V (the bus is already 16V). Make sure you add these AFTER the series diode, otherwise you create a massive increase in rise and fall time and this will mess up bus data transmissions.<br>
+The EMS thermostats deal with this by using 1F supercaps to store energy. <BR>
+On the RC35 PCB below you can clearly see the big black super capacitor for storing energy.<br>
+<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/Thermostats/Moduline-400-PCB2.jpg" width="250"><br>  
+For hobby purposes you can use something like >1000uF caps rated at at least 25V (the bus is already 16V). Make sure you add these AFTER the series diode, otherwise you create a massive increase in rise and fall time and this will mess up bus data transmissions.<br>
 The use of LDO's is not a good idea because those kind of regulators dissipate the difference in heat and therefore are prone to overheating when you have a large voltage drop like in the case of the EMS bus (16 to 5V). 
 A simple buck converter is a better idea. These are also very cheap. 
   
