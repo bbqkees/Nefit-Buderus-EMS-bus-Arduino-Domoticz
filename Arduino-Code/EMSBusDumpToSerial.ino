@@ -122,6 +122,11 @@ if (ptr>4){
 #endif  
  
     if (crcCheckOK(buffer,ptr)){
+      // Uncomment ONE of the following three lines if you want to filter on a specific transmitter/receiver/frametype.
+      // if(buffer[0] == 0x10){ //filter on a specific transmitter f.i. only data sent by the RC35 thermostat.
+      // if(buffer[1] == 0x10 || buffer[1] == (0x10 | 0x80)){ //filter on a specific receiver f.i. only data sent to RC35 thermostat.
+      // if(buffer[2] == 0x18){ //filter on a specific frametype f.i. 0x18 UBAMonitorFast.
+      
       nefitSerial.println("Received datagram.");
       nefitSerial.print("-----Datagram----- BYTES=");nefitSerial.println(ptr+1);
       nefitSerial.print("HEX: ");
@@ -131,8 +136,8 @@ if (ptr>4){
             nefitSerial.print(" ");
             }
       nefitSerial.println();nefitSerial.println("-----End of Datagram-----");
- 
-    } 
+    // } // end if buffer[] -> uncomment this bracket when enabling any specific filter (see above).
+    } // end crccheck
   } // end if ptr>4
   } // end if nefitSerial1.available()
 } // end void loop
