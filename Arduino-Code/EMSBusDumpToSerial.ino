@@ -1,5 +1,5 @@
 /* EMS register bus dump sketch for Arduino Mega.
- * * Version 1.0 Github - May 2018
+ * * Version 1.1 Github - May 2018
  * 
  * Copyright (c) 2018 - 'bbqkees' @ www.domoticz.com/forum
  * What now follows is the MIT license, this means you can do whatever you want with the code.
@@ -18,8 +18,9 @@
  * Legal Notices
  * 'Worcester', 'Bosch Group', 'Buderus' and 'Nefit' are brands of Bosch Thermotechnology.
  * All other trademarks are the property of their respective owners.
- * last edit  :  02-MAY-2018
+ * last edit  :  08-MAY-2018
  * 
+ * 08-MAY-2018:  Added a quick filter option to the serial output.
  * 02-MAY-2018:  Initial version
  * 
  * What does it do?
