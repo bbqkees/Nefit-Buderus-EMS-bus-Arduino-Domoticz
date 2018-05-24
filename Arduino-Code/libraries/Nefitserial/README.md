@@ -44,12 +44,10 @@ You can do this by performing the sequence endSerial(), DigitalWrite (0,1); dela
 This leaves us with detecting the BREAK when it occurs. For this I have no easy workaround at the moment.
 
 ## Can we port your sketch/concept to the ESP?
-This will require some work, but it is possible. To get you started:
+This has been recently completed by 'Proddy' see below:
 
 ### ESP8266
-The ESP8266 has a detection method for the BREAK signal. <br>See the ESP UART documentation section 'Error detection interrupt'.<br>
-Check example code for the DMX512 protocol to see how the BREAK is implemented there.
-The ESP8266 serial interface is pretty inconvenient to work with, so I suggest you start with the ESP32 instead. 
+See full working code here: https://github.com/proddy/EMS-ESP-Boiler
 
 ### ESP32
 The ESP32 has a built-in method in the ESP-IDF UART API to send data with a BREAK condition. See [here](http://esp-idf.readthedocs.io/en/latest/api-reference/peripherals/uart.html#_CPPv227uart_write_bytes_with_break11uart_port_tPKc6size_ti).<br>
