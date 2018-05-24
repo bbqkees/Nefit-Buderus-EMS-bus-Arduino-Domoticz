@@ -101,7 +101,7 @@ Serial(0) is used to debug the output to PC.
 EMS serial works with 9700 Baudrate and 8N1.
 You need a modified Serial library for the Arduino. It's included in the project.
 
-*The modified Serial library and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board like the Uno and Mega. ATSAMxx (ARM) type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.*
+*The modified Serial library and thus the entire sketch will only work on Arduino (compatible) boards that have an Atmel AVR (ATmega) microcontroller on board like the Uno and Mega. ATSAMxx (ARM) type Arduino's are not supported. Neither are the ESP8266, ESP32 etc.<br> For the ESP8266 'Proddy' has written fully working code: https://github.com/proddy/EMS-ESP-Boiler*
 
 Arduino Mega pinout:
 * Serial  on pins  0 (RX)  and 1 (TX),
