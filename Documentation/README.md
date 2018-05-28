@@ -41,7 +41,8 @@ Another option is to power the whole circuit as-is with 3.3V and replace the men
 
 ## Complete interface board
 I also created a complete interface board with 5V and 3.3V compatible UART interface.
-Please [PM](http://www.domoticz.com/forum/memberlist.php?mode=viewprofile&u=1736) me on the Domoticz forum for more information.<br>
+Please send an email to bbqkees+pcb AT gmail.com if you want to order one (base price €17,50 ex postage).<br>
+More info [HERE](http://www.domoticz.com/forum/viewtopic.php?f=22&t=22079).<br>
 ![EMS bus PCB](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/nefit-ems-bus-interface-PCB.jpg)
 
 ## EMS bus interface locations
