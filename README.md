@@ -8,9 +8,10 @@ Readout the Nefit/Buderus EMS interface of a Nefit Trendline gas boiler (gas con
 Transfer of data via ethernet to Domoticz home automation software.
 
 ## What does it do?
-This sketch reads the EMS interface data and depending on the format decodes the data and puts it in variables.
+The main sketch reads the EMS interface data and depending on the format decodes the data and puts it in variables.
 You can then send the values via HTTP GET requests to Domoticz or do whatever you want with it.
-Usage is not limited to Domoticz, you can extract the decoding part for other purposes.
+Usage is not limited to Domoticz, you can extract the decoding part for other purposes.<br>
+There are also a few other sketches here to help you read and write to the EMS bus.
 
 ## Boiler support
 **Reading the EMS bus:**
