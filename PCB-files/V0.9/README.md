@@ -37,9 +37,6 @@ I have almost all components in a nice [Reichelt shopping list](https://www.reic
 - Do not replace the jack terminal with another type, as its footprint is very specific and others will either not fit or they have the wrong pinout.<br>
 - L1 and L2 are for SMD inductors. If you want to use through-hole inductors instead you need to use L3 and L4 instead.  
 
-## Schematic
-The schematic will be here shortly.
-
 ## Component list
 Please see above for the Reichelt shopping list.
 
@@ -47,7 +44,7 @@ Index | Type | Size/package | Value | Number/Code | Remark
 ---|---|---|---|---|---
 J1|Screw terminal| 5.08mm |||
 J2|4 pin header|2.54mm|||
-J3|3.5m jack plug|TRS1|||
+J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt.
 J4|3 pin header with one jumper|2.54mm|||
 J5|2 pin header|2.54mm|||
 F1 F2|polyfuse|0805|200mA cont. 400mA trip. 30V|Multicomp MC36207|If not used replace with wire bridge or 0805 zero Ohm resistor.
@@ -66,7 +63,7 @@ R6 R7 R8|resistor|0805|4K7||
 R9 R10 R11 R12|resistor|0805|910E||
 R13|resistor|0805|10k||
 R14|resistor|0805|100E||
-R15|resistor|0805|||Not populated
+R15|resistor|0805|--|--|Not populated
 C1|capacitor|0805|68pF 16V||
 C2|capacitor|0805|1.5nF 16V||
 C3|capacitor|0805|10nF 16V||
@@ -74,5 +71,6 @@ C4|capacitor|0805|10uF 16V||
 C5|capacitor|0805|1nF 16V||
 C6|capacitor|0805|100nF 16V||
 
-
+## Schematic
+The schematic will be here shortly.
  
