@@ -1,4 +1,5 @@
 # Board design V0.9
+![Design top view](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/nefit-ems-bus-interface-PCB-top.jpg)
 
 ## Board functionality
 The board has the full send and receive circuit to interface between the EMS bus and a 3.3V or 5V interface logic microcontroller.<BR>
@@ -55,7 +56,7 @@ J2|4 pin header|2.54mm|||
 J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt.
 J4|3 pin header with one jumper|2.54mm|||
 J5|2 pin header|2.54mm|||
-J6 J7 J8 J9 J10 J11|1 pin header||||Not populated. Use for mounting.
+J6 J7 J8 J9 J10 J11 J12|1 pin header||||Not populated. Use for mounting.
 F1 F2|polyfuse|0805|200mA cont. 400mA trip. 30V|Multicomp MC36207|If not used replace with wire bridge or 0805 zero Ohm resistor.
 L1 L2|inductor/choke|0805|4.7uF||Use L1 L2 for SMD OR L3 L4 for through hole.
 L3 L4|inductor/choke|12.7mm|~4.7mF||Use L3 L4 for through hole OR L1 L2 for SMD.
@@ -63,7 +64,7 @@ U2|IC|SOIC-8|LM393D|LM393D|
 Q1|transistor NPN|SOT-23|BC847B|BC847B|
 D3 D4|schottky diode bridge|SOT-23|BAT54S|BAT54S|
 D5|schottky diode|SOD-123|BAT46W|BAT46W|
-D6 BAT46|diode|mini-melf|1N4148|1N4148|Some boards have the wrong silkscreen 'BAT46' here
+D6 Dx BAT46|diode|mini-melf|1N4148|1N4148|Some boards have the wrong silkscreen 'BAT46' here.
 R2|resistor|0805|10K||
 R3|resistor|0805|360E||
 R4|resistor|0805|47K||
@@ -81,7 +82,7 @@ C5|capacitor|0805|1nF 16V||
 C6|capacitor|0805|100nF 16V||
 
 ## Schematic
-The schematic will be here shortly.
+![Schematic](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/EMS-V09_schema.png)
 
 ## Gerber files
 Not available.
