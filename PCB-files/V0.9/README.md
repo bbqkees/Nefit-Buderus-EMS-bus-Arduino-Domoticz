@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/nefit-ems-bus-interface-PCB-top.jpg" width="500">
 
 ## Board functionality
-The board has the full send and receive circuit to interface between the EMS bus and a 3.3V or 5V interface logic microcontroller.<BR>It has been succesfully running on many boilers for the past year.<BR>
+The board has the full send and receive circuit to interface between the EMS bus and a 3.3V or 5V interface logic microcontroller.<BR>The current and all previous versions have been succesfully running on many boilers for the past year.<BR>
 In the end it is basically just a level shifter between the EMS and TTL designed to be used with the Arduino and the ESP8266 etc.<BR>
 It can be plugged in directly to the EMS service jack on the boiler or parallel to the thermostat.<BR>
 It is powered via 3.3V or 5V from the microcontroller board.<BR>
@@ -22,7 +22,7 @@ They are in the normal 2.54mm grid spacing so f.i. you can use a few header pins
 The last version is V0.9.<BR>
 The only difference between V0.8 and V0.9 boards is the silkscreen. There were a few changes to the text on the board but the schematic and layout is identical. 
 
-### Version history
+### PCB version history
 V0.9: Only difference with V0.8 is the silkscreen.<BR>
 V0.8: Changed the voltage selector to a resistor selector. R15 is no longer populated, changed resistor value R14 to 100 Ohm.<BR>
 V0.7: Removed wire bridge from V0.6 and added a ground plane. Layout is more compact. Moved around some components. Added vias for mounting. Changed EMS 12V pin header. Added two polyfuses.<BR>
@@ -89,7 +89,7 @@ C6|capacitor|0805|100nF 16V||
 **Alternative setup** if you want to power the board with 5V but have a 3.3V compatible UART: Replace R14 with 20K and R15 with 10K.
 And use the lower jumper setting.
 
-## Schematic
+## Schematic V0.9
 ![Schematic](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/EMS-V09_schema.png)
 (Click on the image above for a larger version)
 
