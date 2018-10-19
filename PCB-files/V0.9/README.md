@@ -83,6 +83,7 @@ C6|capacitor|0805|100nF 16V||
 
 ## Schematic
 ![Schematic](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/EMS-V09_schema.png)
+(Click on the image above for a larger version)
 
 ## Gerber files
 Not available.
