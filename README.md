@@ -11,7 +11,9 @@ Transfer of data via ethernet to Domoticz home automation software.
 The main sketch reads the EMS interface data and depending on the format decodes the data and puts it in variables.
 You can then send the values via HTTP GET requests to Domoticz or do whatever you want with it.
 Usage is not limited to Domoticz, you can extract the decoding part for other purposes.<br>
-There are also a few other sketches here to help you read and write to the EMS bus.
+There are also a few other sketches here to help you read and write to the EMS bus.<br>
+<br>
+Furthermore there are some schematics here to help you build the circuit.<br>
 
 ## Boiler support
 **Reading the EMS bus:**
@@ -85,7 +87,7 @@ I f.i. have an on/off thermostat zone control. So I do not have a Nefit thermost
 It is only if you want to read or write thermostat settings you need an EMS bus thermostat.
 
 ## Hardware:
-* EMS interface circuit
+* EMS interface circuit (See Documentation or PBC-files folder).
 * Arduino Mega 2560 Rev3 + Arduino Ethernet Shield with Wiznet w5100
 * Raspberry Pi, PC or other device running Domoticz
 
