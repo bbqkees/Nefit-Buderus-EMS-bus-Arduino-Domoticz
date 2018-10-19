@@ -42,7 +42,7 @@ I have almost all components in a nice [Reichelt shopping list](https://www.reic
 - What Reichelt does not have are the polyfuses. If you buy the bare PCB from me I'll add those two to the shipment.<br>
   I use the Multicomp MC36207. I got them from [Sinuss.nl](https://sinuss.nl/componenten/passieve-componenten/thermistors/pptc-resettable-fuse/1861187-mc36207-fuse-ptc-reset-30v-200ma-smd-multicomp) (high shipping costs!).<br>
   If you want to omit the polyfuses just solder a piece of wire across the footprint of F1 and F2 or solder a 0805 zero Ohm resistor.
-- The screw terminal (J1) is a 5.08mm 2-pin screw terminal I got from Ebay [https://www.ebay.nl/itm/40x-2Pin-Screw-Terminal-Block-Connector-5-08mm-Pitch-Panel-PCB-Mount-Repalce-Kit/292743000390). Those are very cheap. If you buy a bare PCB from me I also add one.
+- The screw terminal (J1) is a 5.08mm 2-pin screw terminal I got from Ebay [(Like these)](https://www.ebay.nl/itm/40x-2Pin-Screw-Terminal-Block-Connector-5-08mm-Pitch-Panel-PCB-Mount-Repalce-Kit/292743000390). Those are very cheap. If you buy a bare PCB from me I also add one.
 - Do not replace the jack terminal with another type, as its footprint is very specific and others will either not fit or they have the wrong pinout.<br>
 - L1 and L2 are for SMD inductors. If you want to use through-hole inductors instead you need to use L3 and L4 instead.  
 
