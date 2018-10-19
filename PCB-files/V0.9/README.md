@@ -1,5 +1,18 @@
 # Board design V0.9
 
+## Board functionality
+The board has the full send and receive circuit to interface between the EMS bus and a 3.3V or 5V interface logic microcontroller.<BR>
+In the end it is basically just a level shifter between the EMS and TTL designed to be used with the Arduino and the ESP8266 etc.<BR>
+It can be plugged in directly to the EMS service jack on the boiler or parallel to the thermostat.<BR>
+It is powered via 3.3V or 5V from the microcontroller board.<BR>
+Some limited protection is provided by two polyfuses to protect the EMS bus from your experimental f*ck ups.
+
+## Board design
+The board is double sided but all components are only on the top side.<BR>
+Components are all SMD except for the connectors those are through-hole.<BR>
+The bottom side of the board has a ground shield. The earliest version of the board did not have it. There is now a huge reduction in noise.<br>
+The board has 5 unnamed holes you can use for mounting. They are not attached to anything.<BR>
+
 ## Remarks
 The last version is V0.9.<BR>
 The only difference between V0.8 and V0.9 boards is the silkscreen. There were a few changes to the text on the board but the schematic and layout is identical. 
@@ -18,11 +31,6 @@ V0.6: First production version. This version has a wire bridge.<BR>
 
 ## Instructions for use
 [Instructions for use](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/PCB-files/V0.9/EMS%20bus%20interface%20board%20manual%20V0.9.pdf) as added to the shipment of the fully populated boards.
-
-## Board design
-The board is double sided but all components are only on the top side.
-The bottom side of the board has a ground shield. The earliest version of the board did not have it. There is now a huge reduction in noise.<br>
-The board has 5 unnamed holes you can use for mounting. They are not attached to anything.<BR>
 
 ## Components
 I have almost all components in a nice [Reichelt shopping list](https://www.reichelt.de/my/1489718).
@@ -74,4 +82,7 @@ C6|capacitor|0805|100nF 16V||
 
 ## Schematic
 The schematic will be here shortly.
+
+## Gerber files
+Not available.
  
