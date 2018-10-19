@@ -17,6 +17,7 @@ Furthermore the board has all components on one side so I would only need one PC
 + The bottom side of the board has a ground plane for reduced noise. <br>
 + The board has several unnamed holes you can use for mounting. They are not attached to anything.<BR>
 They are in the normal 2.54mm grid spacing so f.i. you can use a few header pins to directly solder the EMS board onto an Arduino prototyping board so it will fit neatly and sturdy on top of an Arduino. 
++ Board size and connector positions were chosen such that it all fits on top of an Arduino prototyping board.
 
 ## Remarks
 The last version is V0.9.<BR>
