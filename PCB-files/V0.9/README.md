@@ -11,8 +11,9 @@ Some limited protection is provided by two polyfuses to protect the EMS bus from
 ## Board design
 The board is double sided but all components are only on the top side.<BR>
 Components are all SMD except for the connectors those are through-hole.<BR>
-The bottom side of the board has a ground shield. The earliest version of the board did not have it. There is now a huge reduction in noise.<br>
-The board has 5 unnamed holes you can use for mounting. They are not attached to anything.<BR>
+The bottom side of the board has a ground shield. 
+The board has several unnamed holes you can use for mounting. They are not attached to anything.<BR>
+They are in the normal 2.54mm grid spacing so f.i. you can use a few header pins to directly solder the EMS board onto an Arduino prototyping board so it will fit neatly and sturdy on top of an Arduino. 
 
 ## Remarks
 The last version is V0.9.<BR>
@@ -20,9 +21,9 @@ The only difference between V0.8 and V0.9 boards is the silkscreen. There were a
 
 ### Version history
 V0.9: Only difference with V0.8 is the silkscreen.<BR>
-V0.8: R15 is no longer populated, changed resistor value R14 to 100 Ohm.<BR>
-V0.7: Removed wire bridge from V0.6 and added a ground plane. Layout is more compact. Moved around some components. Added vias for mounting. Changed EMS 12V pin header.<BR>
-V0.6: First production version. This version has a wire bridge.<BR>
+V0.8: Changed the voltage selector to a resistor selector. R15 is no longer populated, changed resistor value R14 to 100 Ohm.<BR>
+V0.7: Removed wire bridge from V0.6 and added a ground plane. Layout is more compact. Moved around some components. Added vias for mounting. Changed EMS 12V pin header. Added two polyfuses.<BR>
+V0.6: First production version. This version has a wire bridge and nu ground plane.<BR>
 
 ## Top side
 ![Top view](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-ems-bus-interface-PCB.jpg)
@@ -54,7 +55,7 @@ Index | Type | Size/package | Value | Number/Code | Remark
 ---|---|---|---|---|---
 J1|Screw terminal| 5.08mm |||
 J2|4 pin header|2.54mm|||
-J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt.
+J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt. (I once found the same connectors on Aliexpress).
 J4|3 pin header with one jumper|2.54mm|||
 J5|2 pin header|2.54mm|||
 J6 J7 J8 J9 J10 J11 J12|1 pin header||||Not populated. Use for mounting.
@@ -65,7 +66,7 @@ U2|IC|SOIC-8|LM393D|LM393D|
 Q1|transistor NPN|SOT-23|BC847B|BC847B|
 D3 D4|schottky diode bridge|SOT-23|BAT54S|BAT54S|
 D5|schottky diode|SOD-123|BAT46W|BAT46W|
-D6 D7/Dx BAT46|diode|SOD-80 (=mini-melf)|1N4148|1N4148|Some boards have the wrong silkscreen 'BAT46' here.
+D6 D7/Dx/BAT46|diode|SOD-80 (=mini-melf)|1N4148|1N4148|Some boards have the wrong silkscreen 'BAT46' here.
 R2|resistor|0805|10K||
 R3|resistor|0805|360E||
 R4|resistor|0805|47K||
