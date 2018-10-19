@@ -47,6 +47,7 @@ J2|4 pin header|2.54mm|||
 J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt.
 J4|3 pin header with one jumper|2.54mm|||
 J5|2 pin header|2.54mm|||
+J6 J7 J8 J9 J10 J11|1 pin header||||Not populated. Use for mounting.
 F1 F2|polyfuse|0805|200mA cont. 400mA trip. 30V|Multicomp MC36207|If not used replace with wire bridge or 0805 zero Ohm resistor.
 L1 L2|inductor/choke|0805|4.7uF||Use L1 L2 for SMD OR L3 L4 for through hole.
 L3 L4|inductor/choke|12.7mm|~4.7mF||Use L3 L4 for through hole OR L1 L2 for SMD.
