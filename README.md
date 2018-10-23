@@ -39,6 +39,7 @@ Below the list of thermostats which should work fine.
 - Nefit BaseLine
 - Bosch Compact
 - Nefit EcomLine Elite (Just the Elite, older sub types often have the old iRT bus!)
+- Sieger BK 15
 
 ### Nefit and Bosch boiler types with -NO- EMS bus
 The following boilers have no EMS bus and are thus not supported:<br>
