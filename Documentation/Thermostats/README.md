@@ -63,7 +63,7 @@ If it is in manual mode, you need to set the manual temperature with `0x17,0xA8,
 
 
 
-### RC30 ≈ Moduline 300
+### RC30 ≈ Moduline 300 ≈ Sieger eSR 73
 This is one of the more advanced EMS thermostat.<br>
 Bus ID: 0x17 OR 0x10.<br>
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150"><br>
