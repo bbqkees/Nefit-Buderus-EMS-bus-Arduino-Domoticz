@@ -13,7 +13,7 @@ Some limited protection is provided by two polyfuses to protect the EMS bus from
 + Components are all SMD except for the connectors those are through-hole.<BR>
 In theory the board could have been smaller and f.i. populated on both sides. However it was designed from a more practical point of view. It has larger SMD components and some additional room around them so the board is hand solderable for even not so skilled persons.<BR> 
 Furthermore the board has all components on one side so I would only need one PCB solder paste stencil if I wanted to use one. Those things are relatively expensive compared to the price of the PCB's themselves.<BR>
-+ All connectors are through hole, these are usually much stronger than SMD connectors which can easily be ripped of the board if f.i. you pull too hard on an attached wire.<br>
++ All connectors are through hole, these are usually much stronger than SMD connectors which can easily be ripped off the board if f.i. you pull too hard on an attached wire.<br>
 + The bottom side of the board has a ground plane for reduced noise. <br>
 + The board has several unnamed holes you can use for mounting. They are not attached to anything.<BR>
 They are in the normal 2.54mm grid spacing so f.i. you can use a few header pins to directly solder the EMS board onto an Arduino prototyping board so it will fit neatly and sturdy on top of an Arduino. 
@@ -59,12 +59,12 @@ Index | Type | Size/package | Value | Number/Code | Remark
 ---|---|---|---|---|---
 J1|Screw terminal| 5.08mm |||
 J2|4 pin header|2.54mm|||
-J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt. (I once found the same connectors on Aliexpress).
+J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt. (Note: I once found the same connectors on Aliexpress).
 J4|3 pin header with one jumper|2.54mm|||
 J5|2 pin header|2.54mm|||
 J6 J7 J8 J9 J10 J11 J12|1 pin header||||Not populated. Use for mounting.
 F1 F2|polyfuse|0805|200mA cont. 400mA trip. 30V|Multicomp MC36207|If not used replace with wire bridge or 0805 zero Ohm resistor.
-L1 L2|inductor/choke|0805|4.7uH||Use L1 L2 for SMD *OR* L3 L4 for through hole.
+L1 L2|inductor/choke|0805|4.7uH||Use pair L1/L2 for SMD *OR* pair L3/L4 for through hole.
 L3 L4|inductor/choke|12.7mm axial|~4.7uH-1mH||Use L3 L4 for through hole *OR* L1 L2 for SMD. The inductor value is not so strict.
 U2|IC|SOIC-8|LM393D|LM393D|You can also use the LM393.
 Q1|transistor NPN|SOT-23|BC847B|BC847B|
