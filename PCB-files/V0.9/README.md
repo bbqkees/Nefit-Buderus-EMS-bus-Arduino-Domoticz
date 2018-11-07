@@ -96,4 +96,4 @@ And use the lower jumper setting.
 
 ## Gerber files
 Not available.
- 
+But you can buy a PCB or an entire working board [HERE](http://shop.hotgoodies.nl/ems/).
