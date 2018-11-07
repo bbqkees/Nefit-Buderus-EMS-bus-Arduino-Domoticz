@@ -12,10 +12,10 @@ Some limited protection is provided by two polyfuses to protect the EMS bus from
 + The board is double sided but all components are only on the top side.<BR>
 + Components are all SMD except for the connectors those are through-hole.<BR>
 In theory the board could have been smaller and f.i. populated on both sides. However it was designed from a more practical point of view. It has larger SMD components and some additional room around them so the board is hand solderable for even not so skilled persons.<BR> 
-Furthermore the board has all components on one side so I would only need one PCB solder paste stencil if I wanted to use one. Those things are relatively expensive compared to the price of the PCB's themselves.<BR>
+Furthermore the board has all components on one side so I would only need one PCB solder paste stencil if I wanted to use one. Those things are relatively expensive compared to the price of the PCB's themselves. And you can't really do two-sided reflow soldering at home anyway.<BR>
 + All connectors are through hole, these are usually much stronger than SMD connectors which can easily be ripped off the board if f.i. you pull too hard on an attached wire.<br>
 + The bottom side of the board has a ground plane for reduced noise. <br>
-+ The board has several unnamed holes you can use for mounting. They are not attached to anything.<BR>
++ The board has several pin holes you can use for mounting. They are not attached to anything.<BR>
 They are in the normal 2.54mm grid spacing so f.i. you can use a few header pins to directly solder the EMS board onto an Arduino prototyping board so it will fit neatly and sturdy on top of an Arduino. 
 + Board size and connector positions were chosen such that it all fits on top of an Arduino prototyping board.
 
