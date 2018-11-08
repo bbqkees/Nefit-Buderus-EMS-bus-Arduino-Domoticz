@@ -80,12 +80,12 @@ R9 R10 R11 R12|resistor|0805|910E||
 R13|resistor|0805|10K||
 R14|resistor|0805|100E||
 R15|resistor|0805|--|--|Not populated. See alternative setup below the table.
-C1|capacitor|0805|68pF 16V||
-C2|capacitor|0805|1.5nF 16V||
-C3|capacitor|0805|10nF 16V||
-C4|capacitor|0805|10uF 16V||
+C1|capacitor|0805|68pF >16V||
+C2|capacitor|0805|1.5nF >16V||
+C3|capacitor|0805|10nF >16V||
+C4|capacitor|0805|10uF >16V||
 C5|capacitor|0805|1nF 16V||
-C6|capacitor|0805|100nF 16V||
+C6|capacitor|0805|100nF >16V||
 
 **Alternative setup** if you want to power the board with 5V but have a 3.3V compatible UART: Replace R14 with 20K and R15 with 10K.
 And use the lower jumper setting.
