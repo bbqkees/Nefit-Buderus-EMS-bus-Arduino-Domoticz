@@ -65,7 +65,7 @@ J5|2 pin header|2.54mm|||
 J6 J7 J8 J9 J10 J11 J12|1 pin header||||Not populated. Use for mounting.
 F1 F2|polyfuse|0805|200mA cont. 400mA trip. 30V|Multicomp MC36207|If not used replace with wire bridge or 0805 zero Ohm resistor.
 L1 L2|inductor/choke|0805|4.7uH||Use pair L1/L2 for SMD *OR* pair L3/L4 for through hole.
-L3 L4|inductor/choke|12.7mm axial|~4.7uH-1mH||Use L3 L4 for through hole *OR* L1 L2 for SMD. The inductor value is not so strict.
+L3 L4|inductor/choke|12.7mm axial|4.7uH||Use L3 L4 for through-hole *OR* L1 L2 for SMD.
 U2|IC|SOIC-8|LM393D|LM393D|You can also use the LM393.
 Q1|transistor NPN|SOT-23|BC847B|BC847B|
 D3 D4|schottky diode bridge|SOT-23|BAT54S|BAT54S|
