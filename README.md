@@ -30,7 +30,8 @@ Most of these are already reverse-engineered. Some are not.
 Below the list of thermostats which should work fine.
 
 ### Nefit and Bosch boiler types with EMS bus
-*This list is incomplete and only for quick reference, check the installation manual first. Use Google.*
+*This list is incomplete and only for quick reference, check the installation manual first. <BR>**Don't be lazy and do your own research first.** <BR>I get multiple questions each week like 'Does boiler/thermostat type X support EMS?' Ask Google that exact same question you want to ask me. Be amazed how often it will provide a proper answer with just a few clicks!*
+  
 - Nefit 9000i
 - Nefit TopLine
 - Nefit TrendLine
