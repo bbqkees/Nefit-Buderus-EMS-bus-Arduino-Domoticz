@@ -13,7 +13,9 @@ You can then send the values via HTTP GET requests to Domoticz or do whatever yo
 Usage is not limited to Domoticz, you can extract the decoding part for other purposes.<br>
 There are also a few other sketches here to help you read and write to the EMS bus.<br>
 <br>
-Furthermore there are some schematics here to help you build the circuit.<br>
+Furthermore there are some schematics here to help you build the converter circuit.<br>
+<br>
+<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/ems-on-mega.jpg" width="300">
 
 ## Boiler support
 **Reading the EMS bus:**
