@@ -57,7 +57,7 @@ Please see above for the Reichelt shopping list.
 
 Index | Type | Size/package | Value | Number/Code | Remark
 ---|---|---|---|---|---
-J1|Screw terminal| 5.08mm |||
+J1|Screw terminal| 5.08mm |AKL 057-02|AKL 057-02|[F.i. 2-pin terminal strip, spacing 5.08 from Reichelt](https://www.reichelt.de/2-pin-terminal-strip-spacing-5-08-akl-057-02-p36615.html?)
 J2|4 pin header|2.54mm|||
 J3|3.5m jack plug stereo|TRS1|EBSF35|EBSF35|Use [this one](https://www.reichelt.de/klinkeneinbaubuchse-3-5-mm-stereo-ebsf-35-p153203.html) from Reichelt. (Note: I once found the same connectors on Aliexpress).
 J4|3 pin header with one jumper|2.54mm|||
