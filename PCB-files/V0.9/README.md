@@ -6,7 +6,8 @@ The board has the full send and receive circuit to interface between the EMS bus
 In the end it is basically just a level shifter between the EMS and TTL designed to be used with the Arduino and the ESP8266 etc.<BR>
 It can be plugged in directly to the EMS service jack on the boiler or parallel to the thermostat.<BR>
 It is powered via 3.3V or 5V from the microcontroller board.<BR>
-Some limited protection is provided by two polyfuses to protect the EMS bus from your experimental f*ck ups.<BR>
+Some limited protection is provided by two polyfuses to protect the EMS bus from your experimental f*ck ups.<BR><br>
+You can get a PCB or an entire working board [HERE](https://shop.hotgoodies.nl/ems/).
 
 ## Board design considerations
 + The board is double sided but all components are only on the top side.<BR>
@@ -97,4 +98,4 @@ Please note the capacitors should be 20V and not 16V on the EMS side.
 
 ## Gerber files
 Not available.
-But you can buy a PCB or an entire working board [HERE](http://shop.hotgoodies.nl/ems/).
+But you can buy a PCB or an entire working board [HERE](https://shop.hotgoodies.nl/ems/).
