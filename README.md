@@ -13,7 +13,7 @@ You can then send the values via HTTP GET requests to Domoticz or do whatever yo
 Usage is not limited to Domoticz, you can extract the decoding part for other purposes.<br>
 There are also a few other sketches here to help you read and write to the EMS bus.<br>
 <br>
-Furthermore there are some schematics here to help you build the converter circuit.<br>
+Furthermore there are some schematics here to help you build the converter circuit.<br>(Or buy a complete converter board [here](https://shop.hotgoodies.nl/ems/).)<br>
 <br>
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/ems-on-mega.jpg" width="300">
 
@@ -100,7 +100,7 @@ The TTL-converted signal can then be connected to one of the the Arduino UARTs.
 [See the Documentation folder](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation).
 
 
-This sketch uses the Arduino Mega 2560 and the Wiznet 5100 ethernet shield.
+The sketches here use the Arduino Mega 2560 and the Wiznet 5100 ethernet shield.
 You can also use another Arduino like the Uno but that one only has one hardware serial port.
 
 Serial1 is used for the EMS module.
