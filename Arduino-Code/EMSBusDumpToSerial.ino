@@ -129,7 +129,7 @@ if (ptr>4){
       // if(buffer[2] == 0x18){ //filter on a specific frametype f.i. 0x18 UBAMonitorFast.
       
       nefitSerial.println("Received datagram.");
-      nefitSerial.print("-----Datagram----- BYTES=");nefitSerial.println(ptr+1);
+      nefitSerial.print("-----Datagram----- BYTES=");nefitSerial.println(ptr);
       nefitSerial.print("HEX: ");
             for (int i = 0; i<=ptr; i++){
               nefitSerial.print("0x");
