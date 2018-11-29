@@ -1,6 +1,6 @@
 # Nefit-Buderus-EMS-bus-Arduino-Domoticz
 
-Readout of Nefit/Buderus EMS (=Energy Management System) interface Protocol by Arduino and transfer of data via HTTP GET requests to Domoticz home automation software (or to other systems).
+Readout of Nefit/Buderus (Logamatic) EMS (=Energy Management System) interface Protocol by Arduino and transfer of data via HTTP GET requests to Domoticz home automation software (or to other systems).
 
 ## Goal:
 Readout the Nefit/Buderus EMS interface of a Nefit Trendline gas boiler (gas condensing central heating boiler).
@@ -54,7 +54,7 @@ The following boilers have no EMS bus and are thus not supported:<br>
 - Bosch Condens 3000W / 6000W
 
 
-## Thermostat support
+## Thermostats with EMS bus
 
 For the most specific info have a look at the [EMS thermostat documentation page](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/Documentation/Thermostats).
 
@@ -74,7 +74,7 @@ The RC20 is likely equal to the Nefit Moduleline 200.<br>
 Although the hardware is identical (if you open up a ModuLine 400 it says 'RC35' on the PCB), the firmware may be a bit different. It appears there are slight differences in frametypes. However, as more people are using theses sketches this will be resolved over time.<br>
 Furthermore in principle all EMS bus thermostats can be supported. So this also includes the Nefit Easy and the new line of ModuLine series 1000, 2000, 3000 etc. For a new thermostat you need to log the data on the bus when you set the temperature on the thermostat and go through the log to find the correct messages.<br>If you have a newer Nefit/Bosch/Buderus EMS thermostat and you would like to help I can give a hand. You can contact me via the [Domoticz forum](http://www.domoticz.com/forum/memberlist.php?mode=viewprofile&u=1736).
 
-**Non supported thermostats**
+**Non-compatible thermostats**
 
 Buderus type | Nefit type | Image
 ---|---|---
