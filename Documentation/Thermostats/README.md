@@ -91,6 +91,7 @@ On the RC35 PCB you can clearly see the EMS bus interface and the super capacito
 
 ### Nefit Easy
 This is the newer WiFi enabled EMS bus thermostat.<br>
+Bus ID: 0x18.<br>
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-easy.jpg" height="150"><br>
 
-As it is an EMS bus thermostat, it can be supported but it is not tested yet.
+Work is being done to figure out the Easy datagrams.
