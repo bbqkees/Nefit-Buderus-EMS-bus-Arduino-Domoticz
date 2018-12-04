@@ -94,4 +94,12 @@ This is the newer WiFi enabled EMS bus thermostat.<br>
 Bus ID: 0x18.<br>
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-easy.jpg" height="150"><br>
 
+It is also known as:<br>
+-Nefit Easy (Netherlands)
+-Junkers Control CT100 (Belgium)
+-Buderus Logamatic TC100 (Belgium)
+-E.L.M. Touch (France)
+-Worcester Wave (UK)
+-Bosch Control CT‑100 (Other)
+
 Work is being done to figure out the Easy datagrams.
