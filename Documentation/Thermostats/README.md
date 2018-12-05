@@ -11,6 +11,7 @@ EMS code | Buderus type | Nefit type | Image
 0x10/0x17|RC30|Moduline 300|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150">
 0x10|RC35|Moduline 400|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/moduline300-400.jpg" width="150">
 0x10|RC35 (built-in version)||<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/built-in-RC35.jpg" width="150">
+0x18|CT100/TC100|Easy|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-easy.jpg" height="150">
 
 The RC30 is equal to the Nefit Moduline 300 and the RC35 is equal to the Moduline 400.<br>
 The RC20 is likely equal to the Nefit Moduleline 200.<br>
@@ -89,7 +90,7 @@ However, it appears not all registers are the same as for the RC35. At the momen
 On the RC35 PCB you can clearly see the EMS bus interface and the super capacitor for storing energy.<br>
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/Thermostats/Moduline-400-PCB2.jpg" width="250"><br>
 
-### Nefit Easy
+### Nefit Easy ≈ CT100/TC100
 This is the newer WiFi enabled EMS bus thermostat.<br>
 Bus ID: 0x18.<br>
 <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-easy.jpg" height="150"><br>
