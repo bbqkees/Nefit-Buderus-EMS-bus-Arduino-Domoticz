@@ -103,4 +103,5 @@ It is also known as:<br>
 - Worcester Wave (UK)
 - Bosch Control CT‑100 (Other)
 
-Work is now being done to figure out the Easy datagrams.
+The datagram containing the current room temperature and setpoint is 0x0A.
+However, this datagram appears to be read-only so although you can read the temperature etc, it is not possible to change the setpoint via the EMS bus. For more information see the Github repository of Proddy.
