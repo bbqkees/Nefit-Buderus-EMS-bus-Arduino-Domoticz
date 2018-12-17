@@ -104,4 +104,7 @@ It is also known as:<br>
 - Bosch Control CT‑100 (Other)
 
 The datagram containing the current room temperature and setpoint is 0x0A.
-However, this datagram appears to be read-only so although you can read the temperature etc, it is not possible to change the setpoint via the EMS bus. For more information see the Github repository of Proddy.
+However, this datagram appears to be read-only so although you can read the temperature etc, it is not possible to change the setpoint via the EMS bus. For more information see the [Github of Proddy](https://github.com/proddy/EMS-ESP-Boiler/blob/13603d63c65feccd3513d4383df0ac9c1b93f464/src/ems.cpp#L687).
+
+
+Byte 8 and 9 contain the current room temperature (divide by 100) and byte 10 and 11 contain the current setpoint of the room temperature (divide by 100).
