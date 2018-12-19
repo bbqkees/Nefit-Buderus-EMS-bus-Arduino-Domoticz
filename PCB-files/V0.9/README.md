@@ -37,7 +37,7 @@ V0.6: First production version. This version has a wire bridge and no ground pla
 ![Bottom view](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/nefit-ems-bus-interface-PCB-bottom.jpg)
 
 ## Instructions for use
-You can find the instruction for use as added to the shipment of the fully populated boards [here](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/PCB-files/V0.9/EMS%20bus%20interface%20board%20manual%20V0.9.pdf).
+You can find the instruction for use as added to the shipment of the fully populated boards [here](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/PCB-files/V0.9/EMS%20bus%20interface%20board%20manual%20V0.9-4.pdf).
 
 ## Components
 I have almost all components in a nice [Reichelt shopping list](https://www.reichelt.de/my/1489718).
