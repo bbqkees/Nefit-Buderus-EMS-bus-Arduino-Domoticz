@@ -20,7 +20,7 @@ Furthermore there are some schematics here to help you build the converter circu
 ## Boiler support
 **Reading the EMS bus:**
 Should support all boilers using the EMS databus.
-This includes most Bosch boiler brands like Nefit, Buderus, Worcester and some Junkers.
+This includes most Bosch boiler brands like Nefit, Buderus, Worcester, and some Junkers. But also f.i. Sieger.<br>
 Datagrams containing status updates are periodically sent out by the boiler with source ID 0x08.
 You only need to listen in. No data requests are needed for *most* boilers (But some only send the status automatically at boot).<br>
 However, several types of data are only send when the specific device on the bus is polled. For this you need to write to the bus.
