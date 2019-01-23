@@ -2,6 +2,8 @@
 
 Readout of Nefit/Buderus (Logamatic) EMS (=Energy Management System) interface Protocol by Arduino and transfer of data via HTTP GET requests to Domoticz home automation software (or to other systems).
 
+There are also other names for 'EMS' or additions to EMS called EMS+, EMS2, Heatronic and Heatronic 3 but for most of those you need to do additional reverse engineering.
+
 ## Goal:
 Readout the Nefit/Buderus EMS interface of a Nefit Trendline gas boiler (gas condensing central heating boiler).
 
