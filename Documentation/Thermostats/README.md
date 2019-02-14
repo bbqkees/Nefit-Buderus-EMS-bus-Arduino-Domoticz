@@ -72,6 +72,7 @@ Bus ID: 0x17 OR 0x10.<br>
 #### RC30 specifics
 
 #### Moduline 300 specifics
+Exact same hardware as the Moduline 400, just different firmware.
 
 ### RC35 ≈ Moduline 400
 This is the most advanced EMS thermostat in the series.<br>
