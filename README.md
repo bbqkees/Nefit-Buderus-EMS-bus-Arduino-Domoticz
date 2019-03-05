@@ -17,7 +17,7 @@ There are also a few other sketches here to help you read and write to the EMS b
 <br>
 Furthermore there are some schematics here to help you build the converter circuit.<br>(Or buy a complete converter board [here](https://shop.hotgoodies.nl/ems/).)<br>
 <br>
-<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/ems-on-mega.jpg" width="300">
+<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/ems-on-mega.jpg" height="155">       <img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-ems-bus-interface-PCB.jpg" height="155">
 
 ## Boiler support
 **Reading the EMS bus:**
