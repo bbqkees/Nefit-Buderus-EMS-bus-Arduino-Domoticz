@@ -12,7 +12,7 @@ TX goes to TX_IN. Do not connect the 12V pin of the service jack.
 It does not matter which EMS bus pin you connect to which pin, the bridge rectifier will make sure both orientations will work.<br>
 
 The 100nF (=0,1uF) capacitor is a bypass capacitor to ensure a stable voltage for the LM393 (See the LM393 datasheet). 
-Also do not forget to power the LM393 itself with 5V and ground on pins 8 and 4.<br> 
+Also do not forget to power the LM393 itself with 5V for Arduino or 3V3 for ESP and Raspberry. Connect ground on pins 8 and 4.<br>
 <br>
 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice. A tripping value of about 300mA or so seems like a good value.<br>
@@ -33,11 +33,7 @@ Here is the Rx part of the schematic on a small breadboard (working example, no 
 ![EMS schematic on a breadboard](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/blob/master/Documentation/ems-breadboard.JPG?raw=true)
 
 ### Using this circuit for interfacing with a Raspberry Pi
-You can use this circuit also to directly interface with the Raspberry Pi UART. However, you need to make a small modification.<br>
-The Arduino has 5V compatible UARTS, the Raspberry Pi has 3,3V compatible UARTS.<br>
-Replace the 4k7 resistor on the right (next to RX_OUT) by a voltage divider consisting of one 20k resistor and one 10k resistor in series. Put the 20k resistor where the 4k7 resistor is, and in series to that one connect the 10k resistor to ground. Now connect the RX_OUT to the point between the 20k and the 10k resistor. Keep in mind the circuit still needs a 5V power supply.
-
-Another option is to power the whole circuit as-is with 3.3V and replace the mentioned 4k7 resistor with a 100 Ohm resistor.
+You can use this circuit also to directly interface with the Raspberry Pi UART. Just power the circuit with 3V3 instead of 5V.
 
 ## Complete interface board
 I also created a complete interface board with 5V and 3.3V compatible UART interface. For the design see the [PCB-files](https://github.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/tree/master/PCB-files/V0.9) folder.
@@ -81,21 +77,11 @@ A USB cable is safe because the Arduino has a internal switchover to Vin if both
 Furthermore keep in mind that when you are sending data to the bus, you are pulling the bus lower through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
   
 ### Powering from the EMS bus itself
-The EMS bus has a limited power supply but aside from the thermostat you can power something additional. But how much depends on what is already on the bus. You will also get problems on transmitting to the bus when you draw the incorrect amount of current.
+The EMS bus has a very limited power supply but aside from the thermostat you can power something additional. But how much depends on what is already on the bus. You will also get problems on transmitting to the bus when you draw the incorrect amount of current. Not recommended. 
 
 #### Isolate your power supply circuit from the bus 
 What is important to note is that both data and power uses the same bus lines. So you need to separate your power supply circuit from the bus lines so it cannot interfere the transmission of data.
 There are several ways to do this. Either use a big diode in series between EMS+ and your power supply circuit, or use f.i. a NPN transistor instead with the base connected via a resistor to EMS+ so it is always 'on'.
-
-#### During transmission of data the bus is pulled low, so no power at those times
-During transmission the entire bus is pulled low every time a zero is transmitted. As a result during these times there is no power available so you need to create a large capacitor buffer to compensate for these drops in the bus.<br>
-The EMS thermostats deal with this by using 1F supercaps to store energy. <BR>
-On the RC35 PCB below you can clearly see the big black super capacitor for storing energy.<br>
-<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/Thermostats/Moduline-400-PCB2.jpg" width="250"><br>  
-For hobby purposes you can use something like >1000uF caps rated at at least 25V (the bus is already 16V). Make sure you add these AFTER the series diode, otherwise you create a massive increase in rise and fall time and this will mess up bus data transmissions.<br>
-The use of LDO's is not a good idea because those kind of regulators dissipate the difference in heat and therefore are prone to overheating when you have a large voltage drop like in the case of the EMS bus (16 to 5V). 
-A simple buck converter is a better idea. These are also very cheap. 
-  
 
 ## EMS bus protocol
 Although there are some variations, a typical EMS bus datagram looks like this:
