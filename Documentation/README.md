@@ -16,7 +16,7 @@ Also do not forget to power the LM393 itself with 5V and ground on pins 8 and 4.
 <br>
 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice. A tripping value of about 300mA or so seems like a good value.<br>
-The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~100 Ohm resistor. 
+The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~250 Ohm resistor. 
 
 There are more components that are not that strict, I used f.i. a LM339 instead of the LM393 on my breadboard.
 In the schematic there are two BAT54S diodes but you can just use BAT46 for all. You can likely even pull off using 1N4148 everywhere.
@@ -78,10 +78,10 @@ Likely you will see a voltage drop on Vin. If the voltage gets below 7V, you can
 If your thermostat turns off or it does not work well anymore, there is a possibility that too much current is drawn. Also in this case you cannot power the Arduino from the bus.<br> If you do not get any real problems at this point, at least make sure the 5V voltage regulator of the Arduino does not overheat.<BR>
 ---DO NOT connect an external power supply to the Arduino if you have connected the 12V pin to Vin!---<br>
 A USB cable is safe because the Arduino has a internal switchover to Vin if both Vin and USB are connected.<br>
-Furthermore keep in mind that when you are sending data to the bus, you are pulling the bus low through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
+Furthermore keep in mind that when you are sending data to the bus, you are pulling the bus lower through the 4 parallel 910 Ohm resistors. This can cause an additional current draw up to 70mA.
   
 ### Powering from the EMS bus itself
-The EMS bus has a limited power supply but aside from the thermostat you can power something additional. But how much depends on what is already on the bus.
+The EMS bus has a limited power supply but aside from the thermostat you can power something additional. But how much depends on what is already on the bus. You will also get problems on transmitting to the bus when you draw the incorrect amount of current.
 
 #### Isolate your power supply circuit from the bus 
 What is important to note is that both data and power uses the same bus lines. So you need to separate your power supply circuit from the bus lines so it cannot interfere the transmission of data.
