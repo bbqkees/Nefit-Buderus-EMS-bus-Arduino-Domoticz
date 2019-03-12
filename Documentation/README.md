@@ -16,7 +16,7 @@ Also do not forget to power the LM393 itself with 5V for Arduino or 3V3 for ESP 
 <br>
 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice. A tripping value of about 300mA or so seems like a good value.<br>
-The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~250 Ohm resistor. 
+The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~250 Ohm resistor. Keep the final resistor value between 210 and 250 Ohm, as this is important for a stable TX.
 
 There are more components that are not that strict, I used f.i. a LM339 instead of the LM393 on my breadboard.
 In the schematic there are two BAT54S diodes but you can just use BAT46 for all. You can likely even pull off using 1N4148 everywhere.
