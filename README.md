@@ -4,6 +4,8 @@ Readout of Nefit/Buderus (Logamatic) EMS (=Energy Management System) interface P
 
 There are also other names for 'EMS' or additions to EMS called EMS+, EMS2, Heatronic and Heatronic 3 but for most of those you need to do additional reverse engineering.
 
+*Although the code in this repository works fine for the most part, I suggest you have a look at the ESP code from [Proddy](https://github.com/proddy/EMS-ESP). It has support for lots of boilers and thermostats out of the box, it's well maintained and features are added all the time.*
+
 ## Goal:
 Readout the Nefit/Buderus EMS interface of a Nefit Trendline gas boiler (gas condensing central heating boiler).
 
