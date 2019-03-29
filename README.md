@@ -6,7 +6,7 @@ There are also other names for 'EMS' or additions to EMS called EMS+, EMS2, Heat
 
 *Although the code in this repository works fine for the most part, I suggest you have a look at the ESP code from [Proddy](https://github.com/proddy/EMS-ESP). It has support for lots of boilers and thermostats out of the box, it's well maintained and features are added all the time.<br>
 <br>
-I'm also transferring most documentation to my seperate repository [EMS-Wiki](https://github.com/bbqkees/EMS-Wiki).*
+I'm also transferring most documentation to my dedicated wiki repository [EMS-Wiki](https://github.com/bbqkees/EMS-Wiki).*
 
 
 
