@@ -1,3 +1,5 @@
+**Information here is outdated. See my new dedicated wiki repository [EMS-Wiki](https://github.com/bbqkees/EMS-Wiki).***
+
 This page will over time include more information specific to certain thermostats.
 
 ## Thermostat support
