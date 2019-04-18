@@ -8,8 +8,7 @@ There are also other names for 'EMS' or additions to EMS called EMS+, EMS2, Heat
 <br>
 I'm also transferring most documentation to my dedicated wiki repository [EMS-Wiki](https://github.com/bbqkees/EMS-Wiki).<br>
 <br>
-You can purchase a complete and tested interface board [here](https://shop.hotgoodies.nl/ems/).
-*
+You can purchase a complete and tested interface board [here](https://shop.hotgoodies.nl/ems/).*
 
 
 
