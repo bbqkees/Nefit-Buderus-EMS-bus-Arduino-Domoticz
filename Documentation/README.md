@@ -18,7 +18,7 @@ Also do not forget to power the LM393 itself with 5V for Arduino or 3V3 for ESP 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice. A tripping value of about 300mA or so seems like a good value.<br>
 The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~250 Ohm resistor.<br>
 The EMS slaves use the current domain to send data to the bus master. For a stable TX, you need to keep the final resistor value between 210 and 250 Ohm.<br>
-If you also power the microcontroller from the bus itself, you need to lower the resistor value a bit. This will be a bit of trail and error.<br> 
+If you also power the microcontroller from the bus itself, you need to lower the resistor value a bit. This will be a bit of trial and error.<br> 
 
 There are more components that are not that strict, I used f.i. a LM339 instead of the LM393 on my breadboard.
 In the schematic there are two BAT54S diodes but you can just use BAT46 for all. You can likely even pull off using 1N4148 everywhere.
