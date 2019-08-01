@@ -16,14 +16,16 @@ Also do not forget to power the LM393 itself with 5V for Arduino or 3V3 for ESP 
 <br>
 
 The 2 'N/A' components on the left are 2 poly fuses. Include them or not, your choice. A tripping value of about 300mA or so seems like a good value.<br>
-The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~250 Ohm resistor. Keep the final resistor value between 210 and 250 Ohm, as this is important for a stable TX.
+The 4 parallel resistors in the transmitter part can be replaced by a single 1W ~250 Ohm resistor.<br>
+The EMS slaves use the current domain to send data to the bus master. For a stable TX, you need to keep the final resistor value between 210 and 250 Ohm.<br>
+If you also power the microcontroller from the bus itself, you need to lower the resistor value a bit. This will be a bit of trail and error.<br> 
 
 There are more components that are not that strict, I used f.i. a LM339 instead of the LM393 on my breadboard.
 In the schematic there are two BAT54S diodes but you can just use BAT46 for all. You can likely even pull off using 1N4148 everywhere.
 
 Furthermore the 4,7mH inductors are pretty huge, likely 4,7uH is the correct value (I used the latter value in my final designs).<br> Probably someone got the multiplier wrong when decoding the value.
 
-One improvement to the circuit would be using optocouplers on the right side where you interface them with your logic.
+One improvement to the circuit could be using optocouplers on the right side where you interface them with your logic.
 Without those in theory a voltage burst on the bus could destroy your Arduino or vice versa.
 
 The line 'U_REF' is an internal voltage for the comparators, just connect every 'U_REF' line together and you are done.
@@ -80,8 +82,8 @@ Furthermore keep in mind that when you are sending data to the bus, you are pull
 The EMS bus has a very limited power supply but aside from the thermostat you can power something additional. But how much depends on what is already on the bus. You will also get problems on transmitting to the bus when you draw the incorrect amount of current. Not recommended. 
 
 #### Isolate your power supply circuit from the bus 
-What is important to note is that both data and power uses the same bus lines. So you need to separate your power supply circuit from the bus lines so it cannot interfere the transmission of data.
-There are several ways to do this. Either use a big diode in series between EMS+ and your power supply circuit, or use f.i. a NPN transistor instead with the base connected via a resistor to EMS+ so it is always 'on'.
+What is important to note is that both data and power uses the same bus lines. So you need to separate your power supply circuit from the bus lines so it cannot interfere with the transmission of data.
+There are several ways to do this. Use f.i. a suitable diode in series between EMS+ and your power supply circuit.
 
 ## EMS bus protocol
 Although there are some variations, a typical EMS bus datagram looks like this:
