@@ -1,6 +1,10 @@
 <br>**---Information here is outdated. See my new dedicated wiki repository [EMS-Wiki](https://github.com/bbqkees/EMS-Wiki).---**<br><br>
 
-This page will over time include more information specific to certain thermostats.
+This page will over time include more information specific to certain thermostats.<br>
+<br>
+Some of the thermostats below are multi-protocol!<br>
+This means that although the thermostat will support the EMS protocol, they also support f.i. the older iRT protocol.<br>
+So if you have an old non-ems boiler like the Nefit Ecomline, you cannot use the code and the schematic in this repository.<br>
 
 ## Thermostat support
 EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).<br>
