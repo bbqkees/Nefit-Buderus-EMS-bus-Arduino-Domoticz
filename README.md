@@ -72,6 +72,10 @@ Short info:<br>
 EMS bus thermostats: RC20 (source ID 0x17), likely also RC30 and RC35 (both ID 0x10).<br>
 Depending on under which brand name these thermostats are sold they might have a different type name.<br>
 
+Some of the thermostats below are multi-protocol!<br>
+This means that although the thermostat will support the EMS protocol, they also support the older iRT protocol.<br>
+So if you have an old non-ems boiler like the Nefit Ecomline, you cannot use the code and the schematic in this repository.<br>
+
 EMS code | Buderus type | Nefit type | Image
 ---|---|---|---
 0x17|RC10?|Moduline 100|<img src="https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/Documentation/nefit-moduline-100.JPG" width="150">
