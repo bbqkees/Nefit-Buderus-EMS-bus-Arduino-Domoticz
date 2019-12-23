@@ -9,7 +9,7 @@ I have written a plugin for Domoticz and EMS-ESP supports Home Assistant nativel
 <br>
 I'm also transferring most documentation to my dedicated wiki repository [EMS-Wiki](https://github.com/bbqkees/EMS-Wiki).<br>
 <br>
-You can purchase a complete and tested interface board [here](https://shop.hotgoodies.nl/ems/).*
+You can purchase a complete and tested interface board [here](https://bbqkees-electronics.nl/).*
 
 
 
