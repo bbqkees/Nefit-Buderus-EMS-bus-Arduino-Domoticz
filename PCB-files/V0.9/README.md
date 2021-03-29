@@ -94,11 +94,6 @@ C6|capacitor|0805|100nF >16V||
 **Alternative setup** if you want to power the board with 5V but have a 3.3V compatible UART: Replace R14 with 20K and R15 with 10K.
 And use the lower jumper setting.
 
-## Schematic V0.9
-![Schematic](https://raw.githubusercontent.com/bbqkees/Nefit-Buderus-EMS-bus-Arduino-Domoticz/master/PCB-files/V0.9/EMS-V09_schema.png)
-(Click on the image above for a larger version)
-Please note the capacitors should be 20V and not 16V on the EMS side.
-
 ## Gerber files
 Not available.
 But you can buy a PCB or an entire working board [HERE](https://bbqkees-electronics.nl/).
